@@ -1,0 +1,36 @@
+{
+	"userList": [
+		{
+			"uid": "0000000000000001",
+			"username": "管理员",
+			"role": ["admin"]
+		},
+		{
+			"uid": "0000000000000002",
+			"username": "普通用户",
+			"role": ["user"]
+		},
+		{
+			"uid": "0000000000000003",
+			"username": "游客",
+			"role": ["guest"]
+		}
+	],
+	"roleList": [
+		{
+			"roleId": "001",
+			"role": "admin",
+			"roleName": "管理员"
+		},
+		{
+			"roleId": "002",
+			"role": "user",
+			"roleName": "普通用户"
+		},
+		{
+			"roleId": "003",
+			"role": "guest",
+			"roleName": "游客"
+		}
+	]
+}

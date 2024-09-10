@@ -1,0 +1,29 @@
+.vxe-table {
+	// table 复选框宽度
+	.vxe-checkbox--icon {
+		font-weight: 400 !important;
+	}
+	// 表格中input大小和单元格一致
+	.vxe-table--body {
+		.vxe-cell.c--tooltip {
+			width: 100% !important;
+			height: 100%;
+			padding: 0 !important;
+			// 单元格内部的内容垂直居中
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.vxe-cell--label {
+				line-height: 36px;
+			}
+			.vxe-input {
+				height: 100%;
+				border-radius: 0;
+			}
+		}
+		// 校验提示文字位置
+		.vxe-cell--valid-error-hint {
+			bottom: -0.5rem;
+		}
+	}
+}

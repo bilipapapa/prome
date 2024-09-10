@@ -1,0 +1,102 @@
+.wave-effect {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	vertical-align: middle;
+	z-index: 1;
+	will-change: opacity, transform;
+	transition: all 0.3s ease-out;
+}
+.wave-effect .wave-ripple {
+	position: absolute;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	margin-top: -10px;
+	margin-left: -10px;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.2);
+	transition: all 0.7s ease-out;
+	transition-property:
+		opacity,
+		-webkit-transform;
+	transition-property: transform, opacity;
+	transition-property:
+		transform,
+		opacity,
+		-webkit-transform;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	pointer-events: none;
+}
+.wave-effect.wave-light .wave-ripple {
+	background-color: rgba(255, 255, 255, 0.45);
+}
+.wave-effect.wave-red .wave-ripple {
+	background-color: rgba(244, 67, 54, 0.7);
+}
+.wave-effect.wave-yellow .wave-ripple {
+	background-color: rgba(255, 235, 59, 0.7);
+}
+.wave-effect.wave-orange .wave-ripple {
+	background-color: rgba(255, 152, 0, 0.7);
+}
+.wave-effect.wave-purple .wave-ripple {
+	background-color: rgba(156, 39, 176, 0.7);
+}
+.wave-effect.wave-green .wave-ripple {
+	background-color: rgba(76, 175, 80, 0.7);
+}
+.wave-effect.wave-teal .wave-ripple {
+	background-color: rgba(0, 150, 136, 0.7);
+}
+.wave-effect.wave-theme .wave-ripple {
+	background-color: var(--el-color-primary-light-3);
+}
+.wave-effect input[type='button'],
+.wave-effect input[type='reset'],
+.wave-effect input[type='submit'] {
+	border: 0;
+	font-style: normal;
+	font-size: inherit;
+	text-transform: inherit;
+	background: none;
+}
+.wave-notransition {
+	transition: none !important;
+}
+.wave-circle {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
+}
+.wave-input-wrapper {
+	border-radius: 0.2em;
+	vertical-align: bottom;
+}
+.wave-input-wrapper .wave-button-input {
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+.wave-circle {
+	text-align: center;
+	width: 2.5em;
+	height: 2.5em;
+	line-height: 2.5em;
+	border-radius: 50%;
+	-webkit-mask-image: none;
+}
+.wave-block {
+	display: block;
+}
+a.wave-effect .wave-ripple {
+	z-index: -1;
+}

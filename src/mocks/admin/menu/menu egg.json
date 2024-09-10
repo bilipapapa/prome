@@ -1,0 +1,350 @@
+[
+	{
+		"id": "1000",
+		"parentId": "-1",
+		"weight": 0,
+		"name": "权限管理",
+		"path": "/admin",
+		"meta": {
+			"isLink": "",
+			"isIframe": false,
+			"isKeepAlive": false,
+			"icon": "iconfont icon-icon-",
+			"enName": "authorization",
+			"isAffix": false,
+			"title": "权限管理",
+			"isHide": false
+		},
+		"sortOrder": 0,
+		"menuType": "0",
+		"permission": null,
+		"children": [
+			{
+				"id": "1100",
+				"parentId": "1000",
+				"weight": 1,
+				"name": "用户管理",
+				"path": "/admin/user/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": false,
+					"isKeepAlive": false,
+					"icon": "ele-User",
+					"enName": "user",
+					"isAffix": false,
+					"title": "用户管理",
+					"isHide": false
+				},
+				"sortOrder": 1,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "1200",
+				"parentId": "1000",
+				"weight": 2,
+				"name": "菜单管理",
+				"path": "/admin/menu/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": false,
+					"isKeepAlive": false,
+					"icon": "iconfont icon-caidan",
+					"enName": "menu",
+					"isAffix": false,
+					"title": "菜单管理",
+					"isHide": false
+				},
+				"sortOrder": 2,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "1300",
+				"parentId": "1000",
+				"weight": 3,
+				"name": "角色管理",
+				"path": "/admin/role/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": false,
+					"icon": "iconfont icon-gerenzhongxin",
+					"enName": "role",
+					"isAffix": false,
+					"title": "角色管理",
+					"isHide": false
+				},
+				"sortOrder": 3,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "1400",
+				"parentId": "1000",
+				"weight": 4,
+				"name": "部门管理",
+				"path": "/admin/dept/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": false,
+					"icon": "iconfont icon-zidingyibuju",
+					"enName": "dept",
+					"isAffix": false,
+					"title": "部门管理",
+					"isHide": false
+				},
+				"sortOrder": 4,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "1600",
+				"parentId": "1000",
+				"weight": 5,
+				"name": "岗位管理",
+				"path": "/admin/post/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": false,
+					"isKeepAlive": true,
+					"icon": "iconfont icon--chaifenhang",
+					"enName": "post",
+					"isAffix": false,
+					"title": "岗位管理",
+					"isHide": false
+				},
+				"sortOrder": 5,
+				"menuType": "0",
+				"permission": null
+			}
+		]
+	},
+	{
+		"id": "2000",
+		"parentId": "-1",
+		"weight": 1,
+		"name": "系统管理",
+		"path": "/system",
+		"meta": {
+			"isLink": "",
+			"isIframe": null,
+			"isKeepAlive": false,
+			"icon": "iconfont icon-quanjushezhi_o",
+			"enName": "system",
+			"isAffix": false,
+			"title": "系统管理",
+			"isHide": false
+		},
+		"sortOrder": 1,
+		"menuType": "0",
+		"permission": null,
+		"children": [
+			{
+				"id": "2001",
+				"parentId": "2000",
+				"weight": 0,
+				"name": "日志管理",
+				"path": "/admin/logs",
+				"meta": {
+					"isLink": "",
+					"isIframe": false,
+					"isKeepAlive": false,
+					"icon": "ele-Cloudy",
+					"enName": "log",
+					"isAffix": false,
+					"title": "日志管理",
+					"isHide": false
+				},
+				"sortOrder": 0,
+				"menuType": "0",
+				"permission": null,
+				"children": [
+					{
+						"id": "2100",
+						"parentId": "2001",
+						"weight": 2,
+						"name": "操作日志",
+						"path": "/admin/log/index",
+						"meta": {
+							"isLink": "",
+							"isIframe": false,
+							"isKeepAlive": false,
+							"icon": "iconfont icon-jinridaiban",
+							"enName": "operation",
+							"isAffix": false,
+							"title": "操作日志",
+							"isHide": false
+						},
+						"sortOrder": 2,
+						"menuType": "0",
+						"permission": null
+					}
+				]
+			},
+			{
+				"id": "2200",
+				"parentId": "2000",
+				"weight": 6,
+				"name": "字典管理",
+				"path": "/admin/dict/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": false,
+					"icon": "iconfont icon-zhongduancanshuchaxun",
+					"enName": "dict",
+					"isAffix": false,
+					"title": "字典管理",
+					"isHide": false
+				},
+				"sortOrder": 6,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "2906",
+				"parentId": "2000",
+				"weight": 6,
+				"name": "文件管理",
+				"path": "/admin/file/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": false,
+					"icon": "ele-Files",
+					"enName": "file",
+					"isAffix": false,
+					"title": "文件管理",
+					"isHide": false
+				},
+				"sortOrder": 6,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "2210",
+				"parentId": "2000",
+				"weight": 7,
+				"name": "参数管理",
+				"path": "/admin/param/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": true,
+					"icon": "iconfont icon-wenducanshu-05",
+					"enName": "parameter",
+					"isAffix": false,
+					"title": "参数管理",
+					"isHide": false
+				},
+				"sortOrder": 7,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "2800",
+				"parentId": "2000",
+				"weight": 8,
+				"name": "Quartz管理",
+				"path": "/daemon/job-manage/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": false,
+					"icon": "ele-AlarmClock",
+					"enName": "quartz",
+					"isAffix": false,
+					"title": "Quartz管理",
+					"isHide": false
+				},
+				"sortOrder": 8,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "2400",
+				"parentId": "2000",
+				"weight": 9,
+				"name": "终端管理",
+				"path": "/admin/client/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": true,
+					"icon": "iconfont icon-gongju",
+					"enName": "client",
+					"isAffix": false,
+					"title": "终端管理",
+					"isHide": false
+				},
+				"sortOrder": 9,
+				"menuType": "0",
+				"permission": null
+			},
+			{
+				"id": "2600",
+				"parentId": "2000",
+				"weight": 11,
+				"name": "令牌管理",
+				"path": "/admin/token/index",
+				"meta": {
+					"isLink": "",
+					"isIframe": null,
+					"isKeepAlive": false,
+					"icon": "ele-Key",
+					"enName": "token",
+					"isAffix": false,
+					"title": "令牌管理",
+					"isHide": false
+				},
+				"sortOrder": 11,
+				"menuType": "0",
+				"permission": null
+			}
+		]
+	},
+	{
+		"id": "4000",
+		"parentId": "-1",
+		"weight": 3,
+		"name": "系统监控",
+		"path": "/daemon",
+		"meta": {
+			"isLink": "",
+			"isIframe": false,
+			"isKeepAlive": false,
+			"icon": "iconfont icon-shuju",
+			"enName": "monitor",
+			"isAffix": false,
+			"title": "系统监控",
+			"isHide": false
+		},
+		"sortOrder": 3,
+		"menuType": "0",
+		"permission": null,
+		"children": [
+			{
+				"id": "4002",
+				"parentId": "4000",
+				"weight": 1,
+				"name": "缓存监控",
+				"path": "/ext/cache",
+				"meta": {
+					"isLink": "",
+					"isIframe": false,
+					"isKeepAlive": false,
+					"icon": "iconfont icon-shuju",
+					"enName": "cache",
+					"isAffix": false,
+					"title": "缓存监控",
+					"isHide": false
+				},
+				"sortOrder": 1,
+				"menuType": "0",
+				"permission": null
+			}
+		]
+	}
+]

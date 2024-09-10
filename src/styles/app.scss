@@ -1,0 +1,35 @@
+#app {
+	height: 100%;
+}
+
+/* layout样式 */
+.layout-container {
+	width: 100%;
+	height: 100%;
+	.layout-flex {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+	.layout-container-main {
+		& > .el-scrollbar .el-scrollbar__view {
+			height: 100%;
+			@extend .layout-flex;
+		}
+	}
+	.layout-main {
+		padding: 0 !important;
+		overflow: hidden;
+		width: 100%;
+		position: relative;
+		@extend .layout-flex;
+		> .el-scrollbar {
+			height: 100%;
+			@extend .layout-flex;
+		}
+		.layout-content {
+			padding: 10px;
+			flex: 1;
+		}
+	}
+}

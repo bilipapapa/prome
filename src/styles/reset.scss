@@ -1,0 +1,45 @@
+/* 初始化样式
+------------------------------- */
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none !important;
+}
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+/* nprogress 进度条跟随主题颜色
+------------------------------- */
+#nprogress {
+	.bar {
+		background: var(--el-color-primary) !important;
+		z-index: 9999999 !important;
+	}
+}
+
+/* fieldset */
+fieldset {
+	border: 1px solid var(--el-border-color);
+	padding: 10px 15px;
+	margin: 0px 10px;
+	border-radius: 2px;
+	legend {
+		padding: 0px 5px;
+		text-align: left;
+	}
+}
