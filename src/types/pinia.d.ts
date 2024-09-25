@@ -30,6 +30,7 @@ declare interface AppSetting {
 	watermarkText: string;
 	mode: LayoutMode;
 	animation: string;
+	footerText: string;
 	settingDrawer: boolean;
 	defaultColor: string;
 	themeColor: string;

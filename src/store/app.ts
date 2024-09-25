@@ -18,6 +18,11 @@ export const useAppStore = defineStore('app', {
 			 */
 			mode: 'mine', // default, mine
 			animation: 'slide-right', // 动画效果
+
+			/**
+			 * 页脚
+			 */
+			footerText: '版权所有，翻版不究', // 底部文字
 			/**
 			 * 设置页面显示
 			 */
