@@ -18,7 +18,7 @@ export function mergeObj(defaultOptions: any, options: any) {
  * @param {T} source - 要拷贝的对象
  * @return {T} 拷贝后的对象
  */
-function deepClone<T>(source: T) {
+export function deepClone<T>(source: T) {
 	if (typeof source !== 'object') {
 		return source;
 	}
