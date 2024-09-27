@@ -42,7 +42,8 @@
 		"vue-router": "^4.4.0",
 		"vuedraggable": "^2.24.3",
 		"vxe-pc-ui": "^4.1.11",
-		"vxe-table": "^4.7.73"
+		"vxe-table": "^4.7.73",
+		"xlsx": "^0.18.5"
 	},
 	"devDependencies": {
 		"@iconify-json/ep": "^1.1.16",
