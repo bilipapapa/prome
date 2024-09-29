@@ -26,6 +26,9 @@ import VxeUIPluginRenderElement from '@vxe-ui/plugin-render-element';
 import '@vxe-ui/plugin-render-element/dist/style.css';
 VxeUI.use(VxeUIPluginRenderElement);
 
+// @visactor/vue-vtable
+import * as VueVTable from '@visactor/vue-vtable';
+
 // Mock
 import '@/mocks';
 
@@ -33,5 +36,9 @@ let app = createApp(App);
 
 // 注册自定义指令
 directive(app);
+
+// 注册全局组件
+app.component('ListTable', VueVTable.ListTable);
+app.component('ListColumn', VueVTable.ListColumn);
 
 app.use(pinia).use(router).use(ElementPlus).use(VxeUI).use(VxeUITable).use(i18n).mount('#app');
