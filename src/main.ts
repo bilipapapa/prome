@@ -7,7 +7,7 @@ import { directive } from '@/directive';
 
 // 全局样式
 import '@/styles/index.scss';
-// 依赖配置
+// 配置
 import './config';
 
 import ElementPlus from 'element-plus';
