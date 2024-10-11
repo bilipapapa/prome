@@ -4,7 +4,7 @@
 	</div>
 </template>
 
-<script setup lang="ts" name="">
+<script setup lang="ts" name="vtable-配置式">
 const options = {
 	columns: [
 		{ field: '0', title: 'name' },
