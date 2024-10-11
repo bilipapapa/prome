@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts" name="图片-缩放拖拽">
-const drag = ref(false);
+let drag = false;
 const scale = ref(1);
 const translateX = ref(0);
 const translateY = ref(0);
@@ -51,7 +51,7 @@ const handleMouseWheel = (e: WheelEvent) => {
 // 鼠标按下事件
 const handleMouseDown = (e: MouseEvent) => {
 	e.preventDefault();
-	drag.value = true;
+	drag = true;
 	const rect = container.value?.getBoundingClientRect();
 	if (!rect) return;
 
@@ -62,14 +62,14 @@ const handleMouseDown = (e: MouseEvent) => {
 	const startTranslateY = translateY.value;
 
 	const handleMouseMove = (e: MouseEvent) => {
-		if (!drag.value) return;
+		if (!drag) return;
 
 		translateX.value = startTranslateX + e.clientX - startX;
 		translateY.value = startTranslateY + e.clientY - startY;
 	};
 
 	const handleMouseUp = () => {
-		drag.value = false;
+		drag = false;
 		document.removeEventListener('mousemove', handleMouseMove);
 		document.removeEventListener('mouseup', handleMouseUp);
 	};
