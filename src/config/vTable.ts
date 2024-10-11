@@ -1,0 +1,1 @@
+import * as VueVTable from '@visactor/vue-vtable';

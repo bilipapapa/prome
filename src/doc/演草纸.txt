@@ -1,0 +1,5 @@
+"@visactor/vtable": "^1.8.0",
+"@visactor/vtable-editors": "^1.8.0",
+"@visactor/vtable-export": "^1.8.0",
+"@visactor/vtable-search": "^1.8.0",
+"@visactor/vue-vtable": "^1.8.0",
