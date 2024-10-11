@@ -4,15 +4,15 @@
 			ref="img"
 			:style="style"
 			src="/src/assets/imgs/vue-life-cycle_en.png"
-			title="滚动缩放"
-			alt="滚动缩放的图片"
+			title="滚动缩放-点击拖拽"
+			alt="操作的图片"
 			@mousewheel="handleMouseWheel"
 			@mousedown="handleMouseDown"
 		/>
 	</div>
 </template>
 
-<script setup lang="ts" name="图片-简单缩放">
+<script setup lang="ts" name="图片-缩放拖拽">
 const drag = ref(false);
 const scale = ref(1);
 const translateX = ref(0);
