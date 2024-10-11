@@ -2,7 +2,7 @@
 	<ul class="operate-menu">
 		<li>
 			<el-dropdown @command="languageChange">
-				<img class="lang-icon" src="@/assets/svg/lang.svg" alt="" />
+				<img class="lang-icon" src="@/assets/svg/icon/lang.svg" alt="" />
 				<template #dropdown>
 					<el-dropdown-menu>
 						<el-dropdown-item command="zh-cn" :disabled="app.locale === 'zh-cn'">简体中文</el-dropdown-item>

@@ -14,8 +14,8 @@
 		<!-- 拖线 & 折叠 -->
 		<div class="controls-line" ref="controlsLineRef" v-draggable2-x="asideWidthChange" @mousedown="controlsHide">
 			<div class="controls" ref="controlsRef" v-if="isModulePage" @click="toggleExpand">
-				<img v-show="app.moduleMenuExpand" class="controls-icon" src="/src/assets/icons/expand-l.svg" />
-				<img v-show="!app.moduleMenuExpand" class="controls-icon" src="/src/assets/icons/expand-r.svg" />
+				<img v-show="app.moduleMenuExpand" class="controls-icon" src="/src/assets/svg/icon/expand-l.svg" />
+				<img v-show="!app.moduleMenuExpand" class="controls-icon" src="/src/assets/svg/icon/expand-r.svg" />
 			</div>
 		</div>
 	</el-aside>
