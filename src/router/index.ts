@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { autoRouteInit } from '@/router/auto';
 import { localRouteInit } from '@/router/local';
 import { serveRouteInit } from '@/router/serve';
@@ -14,7 +14,7 @@ const viewsModules = import.meta.glob('../views/modules/**/index.vue');
 
 // 创建路由实例
 export const router = createRouter({
-	history: createWebHashHistory(),
+	history: import.meta.env.VITE_ROUTER_MODE === 'history' ? createWebHistory() : createWebHashHistory(),
 	routes: [...rootRoute, ...staticRoute, ...errorRoute],
 });
 
@@ -57,12 +57,10 @@ export function setModuleMenuExpand(routePath: string) {
 	if (app.mode !== 'mine') return;
 	if (routePath.startsWith('/modules/')) {
 		if (app.moduleMenuExpand === undefined) {
-			app.moduleMenuExpand = true;
 			setApp({ moduleMenuExpand: true });
 		}
 	} else {
-		app.moduleMenuExpand = false;
-		setApp({ moduleMenuExpand: true });
+		setApp({ moduleMenuExpand: false });
 	}
 }
 
