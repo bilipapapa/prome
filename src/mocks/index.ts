@@ -9,11 +9,8 @@ const modules: Record<string, any> = import.meta.glob('./**/*.js', { eager: true
 Object.values(modules).forEach((module) => {
 	const moduleApi = Object.values(module);
 	Object.values(moduleApi).forEach((api: any) => {
-		if (api instanceof Function) {
-			Mock.mock(...api());
-		} else {
-			Mock.mock(...api);
-		}
+		const [url, method, callback] = api instanceof Function ? api() : api;
+		Mock.mock(new RegExp(url), method, (options: any) => callback(options));
 	});
 });
 
