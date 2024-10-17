@@ -24,5 +24,5 @@ export const table_base_mock = (): MockArg => {
 
 // 获取表格mock2数据
 export const table_base_mock2 = (): MockArg => {
-	return ['/table/base/mock', 'get', mock2];
+	return ['/table/base/mock2', 'get', mock2];
 };
