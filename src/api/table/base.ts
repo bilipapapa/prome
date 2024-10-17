@@ -7,3 +7,17 @@ export const list = (params?) => {
 		params,
 	});
 };
+
+export const mock = () => {
+	return request({
+		url: '/table/base/mock',
+		method: 'get',
+	});
+};
+
+export const mock2 = () => {
+	return request({
+		url: '/table/base/mock2',
+		method: 'get',
+	});
+};

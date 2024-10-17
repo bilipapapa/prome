@@ -18,6 +18,28 @@ declare module '*.vue' {
 	export default component;
 }
 
+declare type AxiosMethod =
+	| 'get'
+	| 'GET'
+	| 'delete'
+	| 'DELETE'
+	| 'head'
+	| 'HEAD'
+	| 'options'
+	| 'OPTIONS'
+	| 'post'
+	| 'POST'
+	| 'put'
+	| 'PUT'
+	| 'patch'
+	| 'PATCH'
+	| 'purge'
+	| 'PURGE'
+	| 'link'
+	| 'LINK'
+	| 'unlink'
+	| 'UNLINK';
+
 /**
  * @desc:	全局-对象类型
  */
