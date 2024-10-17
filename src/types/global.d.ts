@@ -29,5 +29,3 @@ declare type Obj<T = any> = {
  * @desc:	全局-数组类型
  */
 declare type Arr<T = any> = T[];
-
-declare type mockApi = [string, 'get' | 'post' | 'delete' | 'patch' | 'put', object];
