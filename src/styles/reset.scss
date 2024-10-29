@@ -43,3 +43,33 @@ fieldset {
 		text-align: left;
 	}
 }
+
+/**修改全局的滚动条*/
+/**滚动条的宽度*/
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+
+	&-thumb {
+		border-radius: 4px;
+		position: relative;
+		display: block;
+		width: 0;
+		height: 0;
+		cursor: pointer;
+		background-color: rgba(144, 147, 153, 0.5);
+		transition: 0.3s background-color;
+		&:hover {
+			background-color: rgba(144, 147, 153, 0.7);
+		}
+		&:active {
+			background-color: rgba(144, 147, 153, 0.9);
+		}
+	}
+	&-track {
+		background: #fff;
+		&-piece {
+			width: 6px;
+		}
+	}
+}

@@ -16,14 +16,14 @@
 			</div>
 
 			<div class="code-show">
-				<highlightjs :autodetect="true" :code="code" />
+				<highlightjs class="hl" :autodetect="true" :code="code" />
 			</div>
 		</section>
 	</div>
 </template>
 
 <script setup lang="ts" name="简单文件展示">
-import 'highlight.js/styles/base16/3024.css';
+import 'highlight.js/styles/atom-one-dark.css';
 const treeData = ref<Arr>();
 const code = ref<string>('');
 
@@ -65,10 +65,27 @@ const nodeClick = async (data: any) => {
 		display: flex;
 		flex: 1;
 		margin-top: 1rem;
+		max-height: calc(100% - 42px);
+		overflow: hidden;
 		.tree-box {
 			min-width: 20rem;
 			overflow: auto;
 			border-right: 1px solid var(--el-color-info-light-7);
+			.tree {
+				height: 100%;
+			}
+		}
+		.code-show {
+			flex: 1;
+			margin-left: 1rem;
+			.hl {
+				height: 100%;
+				> *:first-child {
+					height: 100%;
+					font-size: 16px;
+					font-family: 'Hasklig', 'Fira Code', 'Source Code Pro', 'Inconsolata', 'Monaco', '微软雅黑';
+				}
+			}
 		}
 	}
 }
