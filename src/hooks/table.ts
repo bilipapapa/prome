@@ -14,7 +14,7 @@ export function useTable(options?: eleHookProps) {
 		// 列表数据是否正在加载中，默认为false
 		dataListLoading: false,
 		// 是否需要自动请求创建接口来获取表格数据，默认为true
-		createdIsNeed: true,
+		immediate: true,
 		// 是否展示分页组件，默认为true
 		isPage: true,
 		// 查询表单对象，用于提交条件查询时的参数传递，默认为空对象
@@ -89,7 +89,7 @@ export function useTable(options?: eleHookProps) {
 	};
 
 	onMounted(() => {
-		if (state.createdIsNeed) {
+		if (state.immediate) {
 			query();
 		}
 	});

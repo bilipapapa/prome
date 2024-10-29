@@ -27,7 +27,7 @@ declare type VxeHookProps = {
 	/**
 	 * 是否在创建页面时即调用数据列表接口，默认为true
 	 */
-	createdIsNeed?: boolean;
+	immediate?: boolean;
 	/**
 	 * 是否需要分页，默认为true
 	 */
@@ -80,7 +80,7 @@ declare type VxeHookProps = {
  */
 declare type eleHookProps = {
 	// 是否在创建页面时即调用数据列表接口，默认为true
-	createdIsNeed?: boolean;
+	immediate?: boolean;
 	// 是否需要分页，默认为true
 	isPage?: boolean;
 	// 查询条件表单对象，类型为any
