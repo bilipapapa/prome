@@ -22,7 +22,7 @@
 	</div>
 </template>
 
-<script setup lang="ts" name="简单文件展示">
+<script setup lang="ts" name="简单文本展示">
 import 'highlight.js/styles/atom-one-dark.css';
 const treeData = ref<Arr>();
 const code = ref<string>('');
