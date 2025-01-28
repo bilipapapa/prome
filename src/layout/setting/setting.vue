@@ -1,5 +1,5 @@
 <template>
-	<el-drawer v-model="app.settingDrawer" direction="rtl" append-to-body @close="setApp({ settingDrawer: false })">
+	<el-drawer v-model="app.settingDrawer" direction="rtl" append-to-body @close="setApp(app)">
 		<!-- header -->
 		<template #header>
 			<h4>设置</h4>
@@ -158,11 +158,10 @@ const initComponentSize = () => {
 };
 // 组件大小change
 const componentSizeChange = () => {
-	setApp(app.value);
 	// 设置vxe-table组件大小
 	VxeUI.setConfig({ size: sizeMap[app.value.componentSize] });
 	// 关闭并重载
-	setApp({ settingDrawer: false });
+	setApp({ ...app.value, settingDrawer: false });
 	window.location.reload();
 };
 
