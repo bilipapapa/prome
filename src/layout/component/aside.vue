@@ -13,7 +13,7 @@
 
 		<!-- 拖线 & 折叠 -->
 		<div class="controls-line" ref="controlsLineRef" v-draggable2-x="asideWidthChange" @mousedown="controlsHide">
-			<div class="controls" ref="controlsRef" v-if="isModulePage" @click="toggleExpand">
+			<div class="controls" ref="controlsRef" v-if="isModulePage" @click="toggleExpand" @mousedown.stop="isDrag = false">
 				<img v-show="app.moduleMenuExpand" class="controls-icon" src="/src/assets/svg/icon/expand-l.svg" />
 				<img v-show="!app.moduleMenuExpand" class="controls-icon" src="/src/assets/svg/icon/expand-r.svg" />
 			</div>
@@ -25,7 +25,6 @@
 import { useStore } from '@/store';
 import { useRoute } from 'vue-router';
 import { Local } from '@/utils/storage';
-import pinia from '@/store';
 
 // 引入组件
 const VerticalMenu = defineAsyncComponent(() => import('@/layout/menu/vertical-menu.vue'));
@@ -36,15 +35,19 @@ let timer: any = null;
 const route = useRoute();
 const { useMenuStore, useAppStore } = useStore();
 const { app } = toRefs(useAppStore());
+// 侧边栏宽度（动态） 默认200px
 const width: any = ref(app.value.moduleMenuWidth || '200px');
+// 控制按钮Ref
 const controlsRef = ref<HTMLElement | null>(null);
+// 控制拖拽
+const isDrag = ref(true);
 
 // 是否是模块页面
 const isModulePage = computed(() => route.path.startsWith('/modules/'));
 
 // 侧边栏宽度改变
 const asideWidthChange = ({ e, name }) => {
-	if (name === 'mousemove') {
+	if (name === 'mousemove' && isDrag.value) {
 		let n = requestAnimationFrame(() => {
 			let len = e.x + 1;
 			width.value = (len < 66 ? 66 : len) + 'px';
@@ -82,24 +85,25 @@ const setAppStyle = (prop: string, width: string) => {
 	}, 300);
 };
 
-// 折叠展开
+// 折叠展开 按住控制按钮不可拖拽
 const toggleExpand = () => {
 	useAppStore().setApp({ moduleMenuExpand: !app.value.moduleMenuExpand });
 };
 // 控制按钮隐藏
 const controlsLineRef = ref();
 const controlsHide = () => {
-	controlsLineRef.value?.addEventListener('mousemove', controlsRefHide);
-	controlsLineRef.value?.addEventListener('mouseleave', controlsRefHide);
+	isDrag.value = true;
+	controlsLineRef.value?.addEventListener('mousemove', controlsHideEvent);
+	controlsLineRef.value?.addEventListener('mouseleave', controlsHideEvent);
 };
 // 控制按钮显示
 const controlsShow = () => {
-	controlsLineRef.value?.removeEventListener('mousemove', controlsRefHide);
-	controlsLineRef.value?.removeEventListener('mouseleave', controlsRefHide);
+	controlsLineRef.value?.removeEventListener('mousemove', controlsHideEvent);
+	controlsLineRef.value?.removeEventListener('mouseleave', controlsHideEvent);
 	controlsRef.value!.style.opacity = '1';
 };
 // 控制按钮隐藏事件
-function controlsRefHide() {
+function controlsHideEvent() {
 	controlsRef.value!.style.opacity = '0';
 }
 </script>
@@ -141,6 +145,7 @@ function controlsRefHide() {
 		background-color: var(--el-color-primary-dark-2);
 		cursor: e-resize;
 		z-index: 999;
+		user-select: none;
 	}
 	.controls {
 		position: absolute;

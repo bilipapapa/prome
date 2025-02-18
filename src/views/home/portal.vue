@@ -29,12 +29,12 @@ const testMockApi = async () => {
 	// console.log(res);
 };
 
-const toModule = async (menu: MenuList) => {
+const toModule = async (menu: Menu) => {
 	await setModuleMenu(menu);
 	router.push(menu.children[0].path);
 };
 
-const setModuleMenu = (menu: MenuList) => {
+const setModuleMenu = (menu: Menu) => {
 	setModuleMenuList(menu.children);
 };
 </script>

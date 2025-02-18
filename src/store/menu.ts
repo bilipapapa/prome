@@ -9,17 +9,17 @@ export const useMenuStore = defineStore({
 	}),
 	actions: {
 		getLocal() {
-			const menuList: MenuList[] = Local.get('menuList');
-			const moduleMenuList: ModuleMenuList[] = Local.get('moduleMenuList');
+			const menuList: Menu[] = Local.get('menuList');
+			const moduleMenuList: ModuleMenu[] = Local.get('moduleMenuList');
 			const { app } = useAppStore();
 			if (moduleMenuList && app.mode === 'mine') return (this.moduleMenuList = moduleMenuList);
 			if (menuList) this.menuList = menuList;
 		},
-		setMenuList(menuList: MenuList[]) {
+		setMenuList(menuList: Menu[]) {
 			this.menuList = menuList;
 			Local.set('menuList', menuList);
 		},
-		setModuleMenuList(moduleMenuList: ModuleMenuList[]) {
+		setModuleMenuList(moduleMenuList: ModuleMenu[]) {
 			this.moduleMenuList = moduleMenuList;
 			Local.set('moduleMenuList', moduleMenuList);
 		},

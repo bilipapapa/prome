@@ -67,7 +67,7 @@ export function setModuleRoute(routePath: string) {
  * @description 合并路由
  */
 export function mergeRoute() {
-	rootRoute[0].children = [...errorRoute, ...moduleRoute, ...staticRoute];
+	rootRoute[0].children = [...moduleRoute, ...staticRoute];
 	return rootRoute;
 }
 
@@ -123,4 +123,3 @@ export function setMenu() {
 	});
 	useMenuStore().setMenuList(menuList);
 }
-

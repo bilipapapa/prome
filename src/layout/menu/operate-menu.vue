@@ -2,7 +2,7 @@
 	<ul class="operate-menu">
 		<li>
 			<el-dropdown @command="languageChange">
-				<img class="lang-icon" src="@/assets/svg/icon/lang.svg" alt="" />
+				<img class="operate-menu-icon" src="@/assets/svg/icon/lang.svg" alt="" />
 				<template #dropdown>
 					<el-dropdown-menu>
 						<el-dropdown-item command="zh-cn" :disabled="app.locale === 'zh-cn'">简体中文</el-dropdown-item>
@@ -12,7 +12,8 @@
 			</el-dropdown>
 		</li>
 		<li>
-			<el-icon> <i-ep-Setting @click="openSetting" /> </el-icon>
+			<img class="operate-menu-icon" src="@/assets/svg/icon/setting.svg" @click="openSetting" alt="" />
+			<!-- <el-icon class="operate-menu-icon"> <i-ep-Setting /> </el-icon> -->
 		</li>
 	</ul>
 </template>
@@ -36,8 +37,16 @@ const languageChange = (key) => {
 </script>
 
 <style lang="scss" scoped>
-.lang-icon {
-	width: 20px;
-	height: 20px;
+.operate-menu {
+	display: flex;
+	margin: 0 1rem;
+	&-icon {
+		width: 1.4rem;
+		height: 1.4rem;
+		margin-left: 0.8rem;
+		&:hover {
+			color: var(--el-color-primary);
+		}
+	}
 }
 </style>

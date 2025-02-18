@@ -27,7 +27,7 @@ const gridOptions = reactive<any>({
 });
 
 const selectFile = (data): any => {
-	readExcelToJson(data.file).then((json: any) => {
+	readExcelToJson(data.file, { raw: true }).then((json: any) => {
 		console.log(json);
 		if (json?.length && Object.keys(json[0]).length) {
 			gridOptions.columns = Object.keys(json[0]).map((key) => ({ title: key, field: key }));

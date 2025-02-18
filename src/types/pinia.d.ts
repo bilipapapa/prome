@@ -8,16 +8,16 @@ declare interface RouteState<T = RouteRecordRaw> {
 }
 
 // 菜单信息 menu
-declare interface MenuState<T = MenuList> {
-	menuList: MenuList[];
+declare interface MenuState<T = Menu> {
+	menuList: Menu[];
 	moduleMenuList: ModuleMenuList[];
 }
-declare interface MenuList<T = any> {
+declare interface Menu<T = any> {
 	name: string;
 	path: string;
-	children: MenuList[];
+	children: Menu[];
 }
-declare interface ModuleMenuList<T = any> {
+declare interface ModuleMenu<T = any> {
 	name: string;
 	path: string;
 }

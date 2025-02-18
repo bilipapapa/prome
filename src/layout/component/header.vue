@@ -1,9 +1,13 @@
 <template>
 	<el-header class="layout-header">
-		<Logo />
-		<div class="layout-header-wrapper">
+		<!-- logo & 菜单 -->
+		<div class="layout-header-content">
+			<Logo />
+			<!-- 导航菜单 -->
 			<NavMenu />
+			<!-- 操作菜单 -->
 			<OperateMenu />
+			<!-- 用户信息 -->
 			<User />
 		</div>
 	</el-header>
@@ -21,12 +25,10 @@ const User = defineAsyncComponent(() => import('@/layout/user/user.vue'));
 	width: 100%;
 	height: 4rem;
 	border: 1px dashed #ccc;
-	display: flex;
-	align-items: center;
-	&-wrapper {
-		flex: 1;
+	&-content {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: space-between;
+		align-items: center;
 	}
 }
 </style>

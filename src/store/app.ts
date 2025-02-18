@@ -48,7 +48,7 @@ export const useAppStore = defineStore('app', {
 	actions: {
 		/**
 		 * @desc: 设置app并存储到localStorage
-		 * @desc:	优先级：参数app > Local.get('app') > store.app
+		 * @desc:	优先级：参数setting > Local.get('app') > store.app
 		 * @param {Obj} setting	指定属性修改。	egg: { locale: 'en' }
 		 */
 		setApp(setting?: Obj | undefined) {

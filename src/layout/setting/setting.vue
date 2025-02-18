@@ -1,5 +1,5 @@
 <template>
-	<el-drawer v-model="app.settingDrawer" direction="rtl" append-to-body @close="setApp(app)">
+	<el-drawer v-model="app.settingDrawer" direction="rtl" append-to-body @close="setApp({ settingDrawer: false })">
 		<!-- header -->
 		<template #header>
 			<h4>设置</h4>
