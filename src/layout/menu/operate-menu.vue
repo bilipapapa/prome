@@ -20,7 +20,7 @@
 
 <script setup lang="ts" name="operate-menu">
 import { useI18n } from 'vue-i18n';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 
 const { locale } = useI18n();
 const { app } = storeToRefs(useAppStore());

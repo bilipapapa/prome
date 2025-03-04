@@ -4,7 +4,7 @@
 
 <script setup lang="ts" name="layout-logo">
 import { useRouter, useRoute } from 'vue-router';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 
 const route = useRoute();
 const router = useRouter();

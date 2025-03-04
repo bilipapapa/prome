@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts" name="nav-menu">
-import { useMenuStore } from '@/store/menu';
+import { useMenuStore } from '@/store/modules/menu';
 import { storeToRefs } from 'pinia';
 
 const router = useRouter();

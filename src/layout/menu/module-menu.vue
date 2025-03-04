@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts" name="module-menu">
-import { useMenuStore } from '@/store/menu';
-import { useAppStore } from '@/store/app';
+import { useMenuStore } from '@/store/modules/menu';
+import { useAppStore } from '@/store/modules/app';
 
 const { moduleMenuList } = storeToRefs(useMenuStore());
 const { app } = storeToRefs(useAppStore());

@@ -36,7 +36,7 @@ const handleMouseWheel = (e: WheelEvent) => {
 	const mouseX = e.clientX - rect.left;
 	const mouseY = e.clientY - rect.top;
 
-	const delta = e.deltaY > 0 ? -0.05 : 0.05;
+	const delta = e.deltaY > 0 ? -0.1 : 0.1;
 	const newScale = Math.min(Math.max(0.5, scale.value + delta), 5);
 
 	const contentMouseX = (mouseX - translateX.value) / scale.value;

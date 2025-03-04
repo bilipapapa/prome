@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 import { Local } from '@/utils/storage';
 export const useMenuStore = defineStore({
 	id: 'menu',

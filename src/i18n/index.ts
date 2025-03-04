@@ -1,6 +1,6 @@
 import { createI18n, VueMessageType } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 import pinia from '@/store';
 
 // 定义语言国际化内容

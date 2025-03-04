@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts" name="portal">
-import { useMenuStore } from '@/store/menu';
+import { useMenuStore } from '@/store/modules/menu';
 import { useRouter } from 'vue-router';
 import { pageList } from '@/api/admin/user';
 

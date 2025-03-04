@@ -67,7 +67,7 @@
 
 <script setup lang="ts" name="基础">
 import { useChangeColor } from '@/utils/color';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 import mittBus from '@/utils/mitt';
 
 const { app } = useAppStore();

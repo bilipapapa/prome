@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts" name="vertical-menu">
-import { useMenuStore } from '@/store/menu';
+import { useMenuStore } from '@/store/modules/menu';
 
 const { menuList } = storeToRefs(useMenuStore());
 </script>

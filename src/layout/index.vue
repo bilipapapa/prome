@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts" name="layout">
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 
 // 组件
 const layouts: any = {

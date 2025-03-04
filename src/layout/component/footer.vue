@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts" name="layout-footer">
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/store/modules/app';
 
 const { app } = storeToRefs(useAppStore());
 </script>
