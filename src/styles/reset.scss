@@ -1,6 +1,7 @@
 /* 初始化样式
 ------------------------------- */
 @charset "UTF-8";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -38,6 +39,7 @@ fieldset {
 	padding: 10px 15px;
 	margin: 0px 10px;
 	border-radius: 2px;
+
 	legend {
 		padding: 0px 5px;
 		text-align: left;
@@ -57,17 +59,24 @@ fieldset {
 		width: 0;
 		height: 0;
 		cursor: pointer;
-		background-color: rgba(144, 147, 153, 0.5);
+		// background-color: rgba(144, 147, 153, 0.5);
+		background-color: var(--el-color-primary-light-8);
 		transition: 0.3s background-color;
+
 		&:hover {
-			background-color: rgba(144, 147, 153, 0.7);
+			// background-color: rgba(144, 147, 153, 0.7);
+			background-color: var(--el-color-primary-light-6);
 		}
+
 		&:active {
-			background-color: rgba(144, 147, 153, 0.9);
+			// background-color: rgba(144, 147, 153, 0.9);
+			background-color: var(--el-color-primary-light-4);
 		}
 	}
+
 	&-track {
 		background: #fff;
+
 		&-piece {
 			width: 6px;
 		}

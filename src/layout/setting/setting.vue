@@ -20,11 +20,11 @@
 				</el-form-item>
 
 				<el-form-item label="水印">
-					<el-switch v-model="app.watermark" active-text="开" inactive-text="关" />
+					<el-switch v-model="app.watermark" @change="setAppSetting()" active-text="开" inactive-text="关" />
 				</el-form-item>
 
 				<el-form-item label="水印文字">
-					<el-input v-model="app.watermarkText" />
+					<el-input v-model="app.watermarkText" @change="setAppSetting()" />
 				</el-form-item>
 
 				<el-form-item label="组件大小">
@@ -169,6 +169,10 @@ const componentSizeChange = () => {
 const initI18n = () => {
 	if (!app.value.locale) app.value.locale = 'zh-cn';
 	locale.value = app.value.locale;
+};
+
+const setAppSetting = (obj?: Obj) => {
+	setApp({ ...app.value, ...obj });
 };
 </script>
 

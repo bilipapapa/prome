@@ -57,7 +57,7 @@ const viteConfig = defineConfig((ConfigEnv: ConfigEnv): any => {
 			}),
 			Inspect(),
 			createStyleImportPlugin({
-				resolves: [VxeTableResolve()], // 配置vxetable 按需加载
+				// resolves: [VxeTableResolve()], // 配置vxetable 按需加载
 			}),
 			topLevelAwait({
 				promiseExportName: '__tla', // TLA Promise 变量名

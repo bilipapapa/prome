@@ -5,7 +5,7 @@ const Random = Mock.Random;
 
 export const mock = {
 	// 属性 list 的值是一个数组，随机生成 1 到 10 个元素
-	'list|1-10': [
+	'data|1-10': [
 		{
 			// 随机生成1-10个★
 			'string|1-10': '★',
@@ -41,7 +41,7 @@ export const mock = {
 
 export const mock2 = {
 	// 属性 list 的值是一个数组，随机生成 1 到 10 个元素
-	'list|1-10': [
+	'data|1-10': [
 		{
 			// 生成随机字符串 长度为 5
 			string: Random.string(5), // "jPXEu"
