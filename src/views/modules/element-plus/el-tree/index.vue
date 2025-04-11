@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { list } from '@/api/tree/base';
+import apis from '@/api';
 const treeRef = ref(null);
 const filterText = ref('');
 const treeData: any = ref([]);
@@ -51,7 +51,7 @@ function filterNode(value: string, data: any) {
 }
 
 async function getTreeData() {
-	const { data } = await list();
+	const { data } = await apis[`tree_base_list`]();
 	treeData.value = data;
 }
 </script>

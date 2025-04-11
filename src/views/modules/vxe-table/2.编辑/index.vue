@@ -3,7 +3,7 @@
 		<div class="mb10">
 			<el-button type="primary" @click="validAll">校验全部</el-button>
 			<el-button type="primary" @click="getData">刷新列表</el-button>
-			<el-button type="primary" @click="clearEdit">清除修改状态</el-button>
+			<el-button type="primary" :disabled="!selection.length" @click="clearEdit">清除修改状态(需要勾选)</el-button>
 			<el-button type="primary" @click="revert">还原修改行</el-button>
 		</div>
 
@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts" name="vxe-table-编辑">
-import { list } from '@/api/table/base';
+import apis from '@/api';
 import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table';
 import { ElMessage } from 'element-plus';
 
@@ -86,7 +86,7 @@ onBeforeMount(() => {
 });
 
 const getData = async () => {
-	const { data } = await list();
+	const { data } = await apis[`table_base_list`]();
 	if (Array.isArray(data) && data.length) {
 		tableData.value = data;
 	} else {

@@ -67,8 +67,8 @@ const handleResponse = (response: AxiosResponse<any>) => {
  * 添加 Axios 的响应拦截器，用于全局响应结果处理
  */
 service.interceptors.response.use(handleResponse, (error) => {
-	const status = Number(error.response.status) || 200;
-	return Promise.reject(error.response.data);
+	// const status = Number(error.response.status) || 200;
+	return Promise.reject(error?.response?.data || error);
 });
 
 // 常用header
