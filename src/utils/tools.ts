@@ -7,43 +7,10 @@
 export function mergeObj(defaultOptions: any, options: any) {
 	for (const key in options) {
 		if (!Object.getOwnPropertyDescriptor(defaultOptions, key)) {
-			defaultOptions[key] = options[key];
+			defaultOptions[key] = options[key]
 		}
 	}
-	return defaultOptions;
-}
-
-/**
- * @desc 对象深拷贝
- * @param {T} source - 要拷贝的对象
- * @return {T} 拷贝后的对象
- */
-export function deepClone<T>(source: T) {
-	if (typeof source !== 'object') {
-		return source;
-	}
-
-	if (source instanceof Date) {
-		return new Date(source.getTime()) as any;
-	}
-
-	if (source instanceof Array) {
-		const cloneArr: any[] = [];
-		for (let i = 0; i < source.length; ++i) {
-			cloneArr[i] = deepClone(source[i]);
-		}
-		return cloneArr as any;
-	}
-
-	if (source instanceof Object) {
-		const cloneObj: Obj = {};
-		for (const key in source) {
-			if (source.hasOwnProperty(key)) {
-				cloneObj[key] = deepClone(source[key]);
-			}
-		}
-		return cloneObj as any;
-	}
+	return defaultOptions
 }
 
 /**
@@ -54,24 +21,91 @@ export function deepClone<T>(source: T) {
 export function parseUrlParams(url: string) {
 	// ie不支持URLSearchParams
 	if (typeof URLSearchParams !== 'undefined') {
-		const search = url.split('?')[1];
-		if (!search) return {};
-		const obj: Obj = {};
+		const search = url.split('?')[1]
+		if (!search) return {}
+		const obj: Obj = {}
 		new URLSearchParams(search).forEach((value, key) => {
-			obj[key] = value;
-		});
-		return obj;
+			obj[key] = value
+		})
+		return obj
 	} else {
 		// 使用正则表达式获取地址栏参数
-		const obj: Obj = {};
-		const reg = /(?:\?|&)([^&=]+)=([^&=]+)/g;
+		const obj: Obj = {}
+		const reg = /(?:\?|&)([^&=]+)=([^&=]+)/g
 		url.replace(reg, function () {
-			obj[arguments[1]] = arguments[2];
-			return arguments[0];
-		});
-		return obj;
+			obj[arguments[1]] = arguments[2]
+			return arguments[0]
+		})
+		return obj
 	}
 }
+
+
+/**
+ * @desc 深度合并对象，只合并source中存在的属性
+ * @param {T} target - 目标对象
+ * @param {U} source - 源对象
+ * @return {T & U} 合并后的对象
+ */
+export function deepMerge<T extends object, U extends object>(target: T, source: U, seen = new WeakMap()): T & U {
+	// 处理source为falsey值或空对象的情况
+	if (!source || (typeof source === 'object' && Object.getOwnPropertyNames(source).length === 0)) {
+		return target as T & U
+	}
+
+	// 确保target和source都是对象
+	if (typeof target !== 'object' || target === null ||
+		typeof source !== 'object' || source === null) {
+		return target as T & U
+	}
+
+	// 检查循环引用
+	if (seen.has(source)) {
+		return seen.get(source)
+	}
+	seen.set(source, target)
+
+	// 获取source的所有自有属性名(包括不可枚举属性)
+	const propNames = Object.getOwnPropertyNames(source)
+
+	// 深度合并逻辑
+	propNames.forEach(key => {
+		// 跳过Vue内部属性(以$或_开头的属性)
+		if (key.startsWith('$') || key.startsWith('_')) {
+			return
+		}
+
+		const sourceValue = (source as any)[key]
+		const targetValue = (target as any)[key]
+
+		// 递归合并对象
+		if (isPlainObject(sourceValue) && isPlainObject(targetValue)) {
+			deepMerge(targetValue, sourceValue, seen)
+		}
+		// 处理数组 - 直接覆盖
+		else if (Array.isArray(sourceValue)) {
+			(target as any)[key] = [...sourceValue]
+		}
+		// 处理对象 - 创建新对象并递归合并
+		else if (isPlainObject(sourceValue)) {
+			(target as any)[key] = deepMerge({}, sourceValue, seen)
+		}
+		// 基本类型直接赋值
+		else {
+			(target as any)[key] = sourceValue
+		}
+	})
+
+	return target as T & U
+}
+
+/**
+ * 检查是否为普通对象
+ */
+function isPlainObject(value: any): value is object {
+	return value !== null && typeof value === 'object' && !Array.isArray(value)
+}
+
 
 /**
  * 统一批量导出
@@ -80,8 +114,9 @@ export function parseUrlParams(url: string) {
  */
 const tools = {
 	mergeObj,
-	deepClone,
 	parseUrlParams,
-};
+	deepMerge,
+	isPlainObject,
+}
 
-export default tools;
+export default tools

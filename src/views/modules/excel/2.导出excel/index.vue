@@ -17,7 +17,7 @@
 <script setup lang="ts" name="导出Excel-1">
 import apis from '@/api';
 import excelDownload from './1';
-import { deepClone } from '@/utils/tools';
+import { cloneDeep } from 'lodash-es';
 
 // 定义变量
 const tableData = ref<any>([]);
@@ -38,7 +38,7 @@ const getData = async () => {
 
 // 导出Excel
 const exportExcel = () => {
-	const data = deepClone(tableData.value).map((el) => {
+	const data = cloneDeep(tableData.value).map((el) => {
 		return {
 			名称: el.title,
 			描述: el.desc,

@@ -1,14 +1,15 @@
 import * as XLSX from 'xlsx';
 import FileSaver from 'file-saver';
 import { formatDate } from '@/utils/time';
-import { deepClone } from '@/utils/tools';
+import { cloneDeep } from 'lodash-es'
+
 import { ElMessage } from 'element-plus';
 
 export function saveJsonToExcel(rawData, filename, columns) {
 	if (!rawData.length) return ElMessage.warning('数据为空，无法导出！');
 	let data = rawData;
 	if (columns && columns.length) {
-		data = deepClone(rawData).map((el) =>
+		data = cloneDeep(rawData).map((el) =>
 			columns.reduce((acc, col) => {
 				acc[col.label] = el[col.prop || col.field];
 				return acc;
