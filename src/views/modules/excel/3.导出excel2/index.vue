@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts" name="导出Excel-2">
-import apis from '@/api';
+import { list } from '@/api/table/base';
 import { saveJsonToExcel } from './excel';
 import { deepClone } from '@/utils/tools';
 
@@ -32,7 +32,7 @@ onBeforeMount(() => {
 
 // 获取数据
 const getData = async () => {
-	const { data } = await apis[`table_base_list`]();
+	const { data } = await list();
 	if (Array.isArray(data) && data.length) {
 		tableData.value = data;
 	} else {

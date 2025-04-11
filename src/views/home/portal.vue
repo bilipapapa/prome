@@ -13,10 +13,21 @@
 <script setup lang="ts" name="portal">
 import { useMenuStore } from '@/store/modules/menu';
 import { useRouter } from 'vue-router';
+import { pageList } from '@/api/admin/user';
 
 const router = useRouter();
 const { setModuleMenuList } = useMenuStore();
 const { menuList } = storeToRefs(useMenuStore());
+
+onBeforeMount(() => {
+	// 测试接口
+	testMockApi();
+});
+
+const testMockApi = async () => {
+	const res = await pageList();
+	// console.log(res);
+};
 
 const toModule = async (menu: Menu) => {
 	await setModuleMenu(menu);
@@ -33,10 +44,8 @@ const setModuleMenu = (menu: Menu) => {
 	.menuList {
 		height: 100%;
 		display: flex;
-		flex-wrap: wrap;
-		align-content: flex-start;
 		.menu {
-			width: 150px;
+			width: 160px;
 			height: 60px;
 			border: 1px dashed #ccc;
 			cursor: pointer;

@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts" name="vxe-table-基础">
-import apis from '@/api';
+import { list } from '@/api/table/base';
 
 // 定义变量
 const tableData = ref();
@@ -23,7 +23,7 @@ onBeforeMount(() => {
 onMounted(() => {});
 
 const getData = async () => {
-	const { data } = await apis[`table_base_list`]();
+	const { data } = await list();
 	if (Array.isArray(data) && data.length) {
 		tableData.value = data;
 	} else {

@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts" name="表格-基础">
-import apis from '@/api';
+import { list } from '@/api/table/base';
 
 // 定义变量
 const tableData = ref<any>([]);
@@ -36,9 +36,7 @@ onBeforeMount(() => {
 
 // 获取数据s
 const getData = async () => {
-	const res = await apis[`table_base_list`]({ pageNum: 1, pageSize: 10 }, []);
-	const data = res.data
-	console.log(res);
+	const { data } = await list();
 	if (Array.isArray(data) && data.length) {
 		tableData.value = data;
 	} else {

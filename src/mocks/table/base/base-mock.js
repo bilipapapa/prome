@@ -36,7 +36,7 @@ export const mock = {
 		},
 	],
 	code: 200,
-	msg: '获取mock数据成功',
+	message: '获取mock数据成功',
 };
 
 export const mock2 = {
@@ -158,5 +158,5 @@ export const mock2 = {
 		},
 	],
 	code: 200,
-	msg: '获取mock2数据成功',
+	message: '获取mock2数据成功',
 };
