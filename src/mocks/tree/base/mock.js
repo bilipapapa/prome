@@ -1,6 +1,4 @@
-export const mockList = {
-	code: 200,
-	message: '获取树结构数据成功',
+export const treeMock = {
 	'data|10-100': [{ // 随机生成 10-200 个根节点
 		id: '@natural',
 		label: '@ctitle(3,8)', // 中文标题稍长些
