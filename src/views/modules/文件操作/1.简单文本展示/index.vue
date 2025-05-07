@@ -63,10 +63,10 @@ const nodeClick = async (data: any) => {
 	overflow: auto;
 	.main {
 		display: flex;
-		flex: 1;
 		margin-top: 1rem;
 		max-height: calc(100% - 42px);
 		overflow: hidden;
+		height: 100%;
 		.tree-box {
 			min-width: 20rem;
 			overflow: auto;

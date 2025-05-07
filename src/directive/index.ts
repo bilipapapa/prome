@@ -1,6 +1,7 @@
-import type { App } from 'vue';
-import draggableDirective from './draggable';
-import wavesDirective from './wave';
+import type { App } from 'vue'
+import draggableDirective from './draggable'
+import wavesDirective from './wave'
+import chartResizeDirective from './chart-resize'
 
 /**
  * 导出指令方法：v-xxx
@@ -9,7 +10,9 @@ import wavesDirective from './wave';
  */
 export function directive(app: App) {
 	// 拖拽
-	draggableDirective(app);
+	draggableDirective(app)
 	// 波浪
-	wavesDirective(app);
+	wavesDirective(app)
+	// 图表自动resize
+	chartResizeDirective(app)
 }

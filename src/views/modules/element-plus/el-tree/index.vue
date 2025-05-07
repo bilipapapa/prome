@@ -51,7 +51,7 @@ function filterNode(value: string, data: any) {
 }
 
 async function getTreeData() {
-	const { data } = await apis[`tree_base_list`]();
+	const { data } = await apis[`tree_list`]();
 	treeData.value = data;
 }
 </script>

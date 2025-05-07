@@ -2,18 +2,26 @@
 	<el-aside class="layout-aside">
 		<el-scrollbar>
 			<!-- default -->
-			<template v-if="app.mode === 'default'">
-				<VerticalMenu class="vertical-menu" :class="{ isExpand: app.verticalMenuExpand }" />
-			</template>
+			<!-- <template v-show="app.mode === 'default'">
+				<VerticalMenu class="vertical-menu" :class="{ isExpand: app.verticalMenuExpand, isHidden: !app.verticalMenuExpand }" />
+			</template> -->
 			<!-- mine -->
-			<template v-else-if="app.mode === 'mine'">
-				<ModuleMenu class="module-menu" ref="moduleMenuRef" :class="{ isExpand: app.moduleMenuExpand && isModulePage }" />
-			</template>
+			<ModuleMenu
+				v-show="app.mode === 'mine'"
+				class="module-menu"
+				ref="moduleMenuRef"
+				:class="{
+					isExpand: app.moduleMenuExpand && isModulePage,
+					isHidden: !app.moduleMenuExpand || !app.moduleMenuExpand,
+					loaded: loaded,
+					dragging: isDragging,
+				}"
+			/>
 		</el-scrollbar>
 
 		<!-- 拖线 & 折叠 -->
 		<div class="controls-line" ref="controlsLineRef" v-draggable2-x="asideWidthChange" @mousedown="controlsHide">
-			<div class="controls" ref="controlsRef" v-if="isModulePage" @click="toggleExpand" @mousedown.stop="isDrag = false">
+			<div class="controls" ref="controlsRef" v-show="isModulePage" @click="toggleExpand" @mousedown.stop="isDrag = false">
 				<img v-show="app.moduleMenuExpand" class="controls-icon" src="/src/assets/svg/icon/expand-l.svg" />
 				<img v-show="!app.moduleMenuExpand" class="controls-icon" src="/src/assets/svg/icon/expand-r.svg" />
 			</div>
@@ -22,73 +30,73 @@
 </template>
 
 <script setup lang="ts" name="layout-aside">
+// import VerticalMenu from '@/layout/menu/vertical-menu.vue';
+import ModuleMenu from '@/layout/menu/module-menu.vue';
+
 import { useStore } from '@/store';
 import { useRoute } from 'vue-router';
 import { Local } from '@/utils/storage';
+import { debounce, throttle } from 'lodash-es';
 
-// 引入组件
-const VerticalMenu = defineAsyncComponent(() => import('@/layout/menu/vertical-menu.vue'));
-const ModuleMenu = defineAsyncComponent(() => import('@/layout/menu/module-menu.vue'));
-
-// 定义变量
-let timer: any = null;
+// 响应式
 const route = useRoute();
 const { useMenuStore, useAppStore } = useStore();
 const { app } = toRefs(useAppStore());
+const loaded = ref(false);
 // 侧边栏宽度（动态） 默认200px
-const width: any = ref(app.value.moduleMenuWidth || '200px');
+const width: any = ref('');
 // 控制按钮Ref
 const controlsRef = ref<HTMLElement | null>(null);
 // 控制拖拽
 const isDrag = ref(true);
+const isDragging = ref(false);
 
 // 是否是模块页面
 const isModulePage = computed(() => route.path.startsWith('/modules/'));
 
+onMounted(() => {
+	loaded.value = true;
+});
+
 // 侧边栏宽度改变
 const asideWidthChange = ({ e, name }) => {
 	if (name === 'mousemove' && isDrag.value) {
-		let n = requestAnimationFrame(() => {
-			let len = e.x + 1;
-			width.value = (len < 66 ? 66 : len) + 'px';
-			switch (app.value.mode) {
-				case 'mine':
-					moduleMenuWidthChange(width.value);
-					break;
-				default:
-					verticalMenuWidthChange(width.value);
-					break;
-			}
-			cancelAnimationFrame(n);
+		requestAnimationFrame(() => {
+			isDragging.value = true;
+			const len = Math.max(66, e.x + 1);
+			width.value = `${len}px`;
+			// 批量更新样式
+			updateMenuWidth(len);
 		});
+		setTimeout(() => window.dispatchEvent(new Event('resize')), 200);
 	} else if (name === 'mouseup') {
+		isDragging.value = false;
 		controlsShow();
+		// 最终更新一次
+		saveWidthToStore();
 	}
 };
-// module menu 宽度改变
-const moduleMenuWidthChange = (width: string) => {
-	document.documentElement.style.setProperty('--module-menu-width', width);
-	setAppStyle('moduleMenuWidth', width);
-};
-// vertical menu 宽度改变
-const verticalMenuWidthChange = (width: string) => {
-	document.documentElement.style.setProperty('--vertical-menu-width', width);
-	setAppStyle('verticalMenuWidth', width);
-};
-// 设置appStore
-const setAppStyle = (prop: string, width: string) => {
-	// 段时间内多次执行只取最后一次
-	if (timer) clearTimeout(timer);
-	timer = setTimeout(() => {
-		Local.set('appStyle', document.documentElement.style.cssText);
-		useAppStore().setApp({ [prop]: width });
-	}, 300);
-};
+
+// 合并样式更新逻辑
+const updateMenuWidth = throttle((width: number) => {
+	const propName = app.value.mode === 'mine' ? '--module-menu-width' : '--vertical-menu-width';
+	document.documentElement.style.setProperty(propName, `${width}px`);
+}, 16); // 约60fps
+
+// 存储操作防抖
+const saveWidthToStore = debounce(() => {
+	const prop = app.value.mode === 'mine' ? 'moduleMenuWidth' : 'verticalMenuWidth';
+	useAppStore().setApp({ [prop]: width.value });
+	Local.set('appStyle', document.documentElement.style.cssText);
+}, 300);
 
 // 折叠展开 按住控制按钮不可拖拽
 const toggleExpand = () => {
 	useAppStore().setApp({ moduleMenuExpand: !app.value.moduleMenuExpand });
+	// 触发window.resize事件
+	window.dispatchEvent(new Event('resize'));
 };
+
 // 控制按钮隐藏
 const controlsLineRef = ref();
 const controlsHide = () => {
@@ -123,17 +131,45 @@ function controlsHideEvent() {
 	}
 	.vertical-menu,
 	.module-menu {
-		transition: width 0.08s;
-		width: 0px;
+		transition: none !important;
+		transform: translateZ(0);
+		will-change: width;
+		contain: strict;
+		backface-visibility: hidden;
+		content-visibility: auto;
+		&.loaded {
+			transition: width 0.28s;
+		}
+		&.isHidden {
+			width: 0px;
+		}
+		&.dragging {
+			transition: none !important;
+			will-change: width;
+		}
 	}
 	.vertical-menu {
+		width: var(--vertical-menu-width);
 		&.isExpand {
 			width: var(--vertical-menu-width);
 		}
 	}
 	.module-menu {
+		width: var(--module-menu-width, 200px); // 双保险
 		&.isExpand {
 			width: var(--module-menu-width);
+		}
+	}
+
+	// 添加拖拽状态标识
+	&.dragging {
+		.module-menu,
+		.vertical-menu {
+			transition: none !important;
+			will-change: width;
+		}
+		~ .layout-main {
+			pointer-events: none; // 禁用主区域交互
 		}
 	}
 	.controls-line {
