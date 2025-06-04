@@ -17,10 +17,10 @@ import { useRoute } from 'vue-router';
 import { useStore } from '@/store';
 
 // 组件
-const LayoutModuleAside = defineAsyncComponent(() => import('@/layout/component/aside.vue'));
-const LayoutHeader = defineAsyncComponent(() => import('@/layout/component/header.vue'));
-const LayoutMain = defineAsyncComponent(() => import('@/layout/component/main.vue'));
-const LayoutFooter = defineAsyncComponent(() => import('@/layout/component/footer.vue'));
+import LayoutModuleAside from '@/layout/component/aside.vue';
+import LayoutHeader from '@/layout/component/header.vue';
+import LayoutMain from '@/layout/component/main.vue';
+import LayoutFooter from '@/layout/component/footer.vue';
 
 // 定义变量
 const route = useRoute();

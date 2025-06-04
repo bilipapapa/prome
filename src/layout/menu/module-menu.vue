@@ -32,7 +32,7 @@ watch(
 	{ immediate: true, deep: true }
 );
 
-const toMenu = (val: ModuleMenuList) => {
+const toMenu = (val: ModuleMenu) => {
 	router.push(val.path);
 };
 </script>

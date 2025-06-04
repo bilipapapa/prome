@@ -81,7 +81,7 @@ const asideWidthChange = ({ e, name }) => {
 const updateMenuWidth = throttle((width: number) => {
 	const propName = app.value.mode === 'mine' ? '--module-menu-width' : '--vertical-menu-width';
 	document.documentElement.style.setProperty(propName, `${width}px`);
-}, 16); // 约60fps
+}, 8); // 约120fps
 
 // 存储操作防抖
 const saveWidthToStore = debounce(() => {
