@@ -14,6 +14,7 @@
 import { useI18n } from 'vue-i18n';
 import { useStore } from '@/store';
 import { Local } from '@/utils/storage';
+import rem from '@/utils/rem';
 
 // 引入组件
 const Setting = defineAsyncComponent(() => import('@/layout/setting/setting.vue'));
@@ -29,6 +30,7 @@ onMounted(() => {
 		useAppStore().setApp();
 		// 设置样式 防止刷新时主题颜色闪烁
 		document.documentElement.style.cssText = Local.get('appStyle');
+		rem(window, document);
 	});
 });
 
