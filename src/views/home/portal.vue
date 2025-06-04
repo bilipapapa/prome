@@ -36,7 +36,7 @@ const setModuleMenu = (menu: Menu) => {
 		flex-wrap: wrap;
 		align-content: flex-start;
 		.menu {
-			width: 150px;
+			width: 2rem;
 			height: 60px;
 			border: 1px dashed #ccc;
 			cursor: pointer;

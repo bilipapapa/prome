@@ -33,7 +33,7 @@ const tableOptions = ref({
 	display: flex;
 	flex-direction: column;
 	.tip {
-		font-size: 1.4rem;
+		font-size: 14px;
 	}
 	.vueVTable-box {
 		flex: 1;

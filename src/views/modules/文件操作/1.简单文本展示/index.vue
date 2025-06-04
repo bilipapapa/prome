@@ -63,26 +63,26 @@ const nodeClick = async (data: any) => {
 	overflow: auto;
 	.main {
 		display: flex;
-		margin-top: 1rem;
-		max-height: calc(100% - 42px);
+		margin-top: 0.125rem;
+		max-height: calc(100% - 0.525rem);
 		overflow: hidden;
 		height: 100%;
 		.tree-box {
-			min-width: 20rem;
+			min-width: 2.5rem;
 			overflow: auto;
-			border-right: 1px solid var(--el-color-info-light-7);
+			border-right: 0.0125rem solid var(--el-color-info-light-7);
 			.tree {
 				height: 100%;
 			}
 		}
 		.code-show {
 			flex: 1;
-			margin-left: 1rem;
+			margin-left: 0.125rem;
 			.hl {
 				height: 100%;
 				> *:first-child {
 					height: 100%;
-					font-size: 16px;
+					font-size: 0.2rem;
 					font-family: 'Hasklig', 'Fira Code', 'Source Code Pro', 'Inconsolata', 'Monaco', '微软雅黑';
 				}
 			}

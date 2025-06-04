@@ -39,11 +39,11 @@ const languageChange = (key) => {
 <style lang="scss" scoped>
 .operate-menu {
 	display: flex;
-	margin: 0 1rem;
+	margin: 0 0.125rem;
 	&-icon {
-		width: 1.4rem;
-		height: 1.4rem;
-		margin-left: 0.8rem;
+		width: 0.175rem;
+		height: 0.175rem;
+		margin-left: 0.1rem;
 		&:hover {
 			color: var(--el-color-primary);
 		}

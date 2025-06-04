@@ -89,10 +89,10 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .table {
-	width: 60rem;
+	width: 7.5rem;
 	th,
 	td {
-		padding: 12px 15px;
+		padding: 0.15rem 0.1875rem;
 	}
 	thead {
 		background-color: var(--el-color-primary-light-7);

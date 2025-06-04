@@ -31,7 +31,7 @@ const toPage = (menu: Menu, menuList: Menu[]) => {
 
 <style lang="scss" scoped>
 .nav-menu {
-	height: 4rem;
+	height: 0.5rem;
 	width: 50%;
 	flex: 1;
 	--el-menu-base-level-padding: 12px;

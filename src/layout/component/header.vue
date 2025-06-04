@@ -23,7 +23,7 @@ const User = defineAsyncComponent(() => import('@/layout/user/user.vue'));
 <style lang="scss" scoped>
 .layout-header {
 	width: 100%;
-	height: 4rem;
+	height: 0.5rem;
 	border: 1px dashed #ccc;
 	&-content {
 		display: flex;
