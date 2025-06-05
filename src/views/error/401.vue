@@ -40,13 +40,13 @@ const router = useRouter();
 		}
 
 		h1 {
-			font-size: 3rem;
+			font-size: 30px;
 			color: #d9534f;
 			margin-bottom: 20px;
 		}
 
 		p {
-			font-size: 1.2rem;
+			font-size: 12px;
 			color: #333;
 			margin-bottom: 30px;
 		}

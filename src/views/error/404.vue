@@ -34,13 +34,13 @@
 		}
 
 		h1 {
-			font-size: 3.5rem;
+			font-size: 35px;
 			color: #e74c3c;
 			margin-bottom: 15px;
 		}
 
 		p {
-			font-size: 1.3rem;
+			font-size: 14px;
 			color: #333333;
 			margin-bottom: 30px;
 		}

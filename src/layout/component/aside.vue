@@ -13,7 +13,6 @@
 				:class="{
 					isExpand: app.moduleMenuExpand && isModulePage,
 					isHidden: !app.moduleMenuExpand || !app.moduleMenuExpand,
-					loaded: loaded,
 					dragging: isDragging,
 				}"
 			/>
@@ -42,7 +41,6 @@ import { debounce, throttle } from 'lodash-es';
 const route = useRoute();
 const { useMenuStore, useAppStore } = useStore();
 const { app } = toRefs(useAppStore());
-const loaded = ref(false);
 // 侧边栏宽度（动态） 默认200px
 const width: any = ref('');
 // 控制按钮Ref
@@ -53,10 +51,6 @@ const isDragging = ref(false);
 
 // 是否是模块页面
 const isModulePage = computed(() => route.path.startsWith('/modules/'));
-
-onMounted(() => {
-	loaded.value = true;
-});
 
 // 侧边栏宽度改变
 const asideWidthChange = ({ e, name }) => {
@@ -131,17 +125,17 @@ function controlsHideEvent() {
 	}
 	.vertical-menu,
 	.module-menu {
-		transition: none !important;
+		transition: width 0.3s ease, opacity 0.2s ease;
 		transform: translateZ(0);
 		will-change: width;
 		contain: strict;
 		backface-visibility: hidden;
 		content-visibility: auto;
-		&.loaded {
-			transition: width 0.28s;
-		}
+		opacity: 1;
+
 		&.isHidden {
 			width: 0px;
+			opacity: 0.2;
 		}
 		&.dragging {
 			transition: none !important;
