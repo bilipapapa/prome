@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw } from 'vue-router'
 
 /**
  * @description: 异常页面路由 404或无权限
@@ -20,7 +20,7 @@ export const errorRoute: RouteRecordRaw[] = [
 			isHide: true,
 		},
 	},
-];
+]
 
 /**
  * @description: 静态路由, 本地写死的路由
@@ -45,7 +45,7 @@ export const staticRoute: RouteRecordRaw[] = [
 		children: [],
 		component: () => import('@/layout/mode/mine.vue'),
 	},
-];
+]
 
 /**
  * @description: 根路由，所有路由节点都挂载在此
@@ -57,4 +57,4 @@ export const rootRoute: RouteRecordRaw[] = [
 		component: () => import('@/layout/index.vue'),
 		children: [],
 	},
-];
+]

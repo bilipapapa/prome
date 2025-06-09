@@ -1,5 +1,5 @@
 <template>
-	<el-menu class="nav-menu" :ellipsis="ellipsisEnabled" mode="horizontal">
+	<el-menu class="nav-menu" :default-active="defaultActive" :ellipsis="ellipsisEnabled" mode="horizontal" :aria-hidden="false">
 		<template v-for="menu in navMenuList">
 			<el-sub-menu :index="menu.name" v-if="menu.children && menu.children.length > 0" :key="menu.name">
 				<template #title>{{ menu.name }}</template>
@@ -25,6 +25,12 @@ const { menuList } = storeToRefs(menuStore);
 const navMenuList = computed(() => menuList.value.filter((menu) => !['portal'].includes(menu.name)));
 
 const ellipsisEnabled = ref(true);
+const defaultActive = ref('');
+
+watchEffect(() => {
+	defaultActive.value = router.currentRoute.value.path;
+	console.log('defaultActive', defaultActive.value);
+});
 
 onMounted(() => {
 	const menuDom: any = document.querySelector('.nav-menu');
