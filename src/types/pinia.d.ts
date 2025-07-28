@@ -38,7 +38,7 @@ declare interface AppSetting {
 	verticalMenuWidth: string;
 	verticalMenuExpand: boolean;
 	moduleMenuWidth: string;
-	moduleMenuExpand: boolean | undefined;
+	moduleMenuExpand: boolean | null;
 }
 declare interface SettingState {
 	app: AppSetting;

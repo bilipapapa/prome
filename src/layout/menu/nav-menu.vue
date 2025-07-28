@@ -29,7 +29,6 @@ const defaultActive = ref('');
 
 watchEffect(() => {
 	defaultActive.value = router.currentRoute.value.path;
-	console.log('defaultActive', defaultActive.value);
 });
 
 onMounted(() => {

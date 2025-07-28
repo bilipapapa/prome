@@ -9,8 +9,7 @@ const apis: Obj = {}
 // 根据mocks文件夹里的ts文件的接口，自动生成api接口
 for (let path in mockModules) {
 	for (let apiName in mockModules[path]) {
-		let _apiInfo = mockModules[path][apiName]
-		let apiInfo = _apiInfo instanceof Function ? _apiInfo() : _apiInfo
+		let apiInfo = toValue(mockModules[path][apiName])
 		// 请求方法 参数第一个为params 第二个为data
 		apis[apiName] = (params: any, data: any) => {
 			// 只取url和method

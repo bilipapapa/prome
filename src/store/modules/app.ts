@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { Local } from '@/utils/storage';
+import { defineStore } from 'pinia'
+import { Local } from '@/utils/storage'
 
 export const useAppStore = defineStore('app', {
 	state: (): SettingState => ({
@@ -42,7 +42,7 @@ export const useAppStore = defineStore('app', {
 			verticalMenuExpand: false, //侧边垂直菜单是否展开 true:展开，false:折叠
 			// module menu
 			moduleMenuWidth: '200px', // module-menu宽度
-			moduleMenuExpand: undefined, // module-menu(mode=mine时使用moduleMenu)是否展开 undefined:折叠 并且若是进入module页面自动展开 true:展开，false:折叠
+			moduleMenuExpand: null, // module-menu(mode=mine时使用) null:折叠-进入module页面自动展开 true:展开，false:折叠
 		},
 	}),
 	actions: {
@@ -52,9 +52,9 @@ export const useAppStore = defineStore('app', {
 		 * @param {Obj} setting	指定属性修改。	egg: { locale: 'en' }
 		 */
 		setApp(setting?: Obj | undefined) {
-			let _app = Local.get('app') ?? this.app;
-			this.app = { ..._app, ...setting };
-			Local.set('app', this.app);
+			let _app = Local.get('app') ?? this.app
+			this.app = { ..._app, ...setting }
+			Local.set('app', this.app)
 		},
 	},
-});
+})

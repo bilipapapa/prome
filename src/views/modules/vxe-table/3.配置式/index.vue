@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { VxeGridProps } from 'vxe-table';
-import { list } from '@/api/table/base';
+import apis from '@/api';
 
 const gridOptions = reactive<VxeGridProps>({
 	columns: [
@@ -25,7 +25,7 @@ onBeforeMount(() => {
 });
 
 const getData = async () => {
-	const { data } = await list();
+	const { data } = await apis[`table_base_list`]();
 	if (Array.isArray(data) && data.length) {
 		gridOptions.data = data;
 	} else {

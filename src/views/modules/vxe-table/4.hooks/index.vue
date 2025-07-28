@@ -5,7 +5,7 @@
 <script setup lang="ts" name="vxe-table-hooks">
 import { VxeTableInstance } from 'vxe-table';
 import { useVxeTable } from '@/hooks/vxeTable';
-import { list } from '@/api/table/base';
+import apis from '@/api';
 
 const state = reactive<VxeGridOptions>({
 	columns: [
@@ -19,7 +19,7 @@ const state = reactive<VxeGridOptions>({
 		{ title: '状态', field: 'status' },
 	],
 	data: [],
-	api: list,
+	api: apis[`table_base_list`],
 });
 
 // refs

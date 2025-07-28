@@ -1,4 +1,5 @@
 import Mock from 'mockjs'
+import qs from 'qs'
 import { parseUrlParams } from '@/utils/tools'
 
 // Mock.mock方法参数
@@ -26,16 +27,25 @@ Object.values(modules)
 	.map((module) => Object.values(module))
 	.flat()
 	.forEach((arg: unknown) => {
-		const mockArg: MockArg = arg instanceof Function ? arg() : arg
+		const mockArg: MockArg = toValue(arg) as MockArg
 		const [url, method, cb] = mockArg
-		const callBack = cb instanceof Function ? mockFun : cb
+		const callBack = cb instanceof Function ? handleCb : cb
 
-		function mockFun(options: MockOptions) {
+		function handleCb(options: MockOptions) {
+			const body = JSON.parse(options.body)
 			const query = parseUrlParams(options.url)
-			return cb({ ...options, query } as Args)
+			return cb({ ...options, body, query, } as Args)
 		}
 
-		Mock.mock(url, method, callBack)
+		Mock.mock(new RegExp(url), method, callBack)
 	})
 
 export default Mock
+
+// 简单分页
+export const pagination = (list: Arr = [], page: Obj) => {
+	const { pageNum = 1, pageSize = 9999999 } = page
+	const startIndex = (pageNum - 1) * pageSize
+	const endIndex = pageNum * pageSize
+	return list.slice(startIndex, endIndex)
+}

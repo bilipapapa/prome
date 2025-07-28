@@ -1,4 +1,4 @@
-import { Args, MockArg } from '@/mocks'
+import { Args, MockArg, pagination } from '@/mocks'
 import { baseList } from './base.json'
 import { mock, mock2 } from './base-mock'
 
@@ -7,8 +7,9 @@ export const table_base_list: MockArg = [
 	'/table/base/list',
 	'get',
 	(args: Args) => {
-		const { pageNum = 1, pageSize = 999999 } = args.query
-		const data = baseList.slice((pageNum - 1) * pageSize, pageNum * pageSize)
+		console.log(args);
+		console.log(baseList);
+		const data = pagination(baseList, args.query)
 		return {
 			code: 200,
 			msg: '操作成功',

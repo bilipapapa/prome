@@ -50,7 +50,7 @@ onMounted(() => {
 			router.replace(path);
 			const moduleName = path.match(/\/modules\/(.*)\/(.*)/)?.[1] || '';
 			const moduleMenu = menuList.value.find((el) => el.name === moduleName);
-			setModuleMenuList(moduleMenu.children || []);
+			setModuleMenuList(moduleMenu?.children || []);
 		}
 	});
 });

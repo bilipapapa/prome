@@ -50,22 +50,19 @@ export function flatRoute(routes: RouteRecordRaw[]): RouteRecordRaw[] {
 }
 
 /**
- * @description 设置mode=mine时的侧边菜单状态
+ * @description 设置mode=mine时的侧边菜单状态,控制侧边栏展开与否
  */
 export function setModuleMenuExpand(routePath: string) {
 	const { app, setApp } = useAppStore()
 	if (app.mode !== 'mine') return
 	if (routePath.startsWith('/modules/')) {
 		// 如果为undefined自动展开
-		if (app.moduleMenuExpand === undefined) {
+		if (app.moduleMenuExpand === null) {
 			setApp({ moduleMenuExpand: true })
 		}
 	} else if (app.moduleMenuExpand) {
 		// 如果当前为展开状态时跳转到非模块路由，则自动收起，且下次跳转到模块路由时自动展开
-		setApp({ moduleMenuExpand: undefined })
-	} else {
-		// 关闭且下次跳转到模块路由时也是关闭
-		setApp({ moduleMenuExpand: false })
+		setApp({ moduleMenuExpand: null })
 	}
 }
 

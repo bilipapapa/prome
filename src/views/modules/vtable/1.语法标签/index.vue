@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts" name="listColumn">
+import { VTable } from '@visactor/vue-vtable';
 const columns = ref([
 	{ field: '0', title: '名字' },
 	{ field: '1', title: '年龄' },
@@ -24,12 +25,20 @@ const columns = ref([
 ]);
 
 const tableOptions = ref({
-	records: new Array(1000).fill(['张三', 18, '男', '🏀', '@example', 'xxx.xxx.xxx.xxx', '12345678901', '正常']),
+	records: new Array(1000).fill(['张三', 18, '男', 'basketball', 'example@example.com', 'xxx.xxx.xxx.xxx', '12345678901', '正常']),
+	hover: {
+		highlightMode: 'row',
+		disableHeaderHover: true,
+	},
+	select: {
+		disableSelect: true,
+	},
 });
 </script>
 
 <style lang="scss" scoped>
 .vueVTable-demo1 {
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	.tip {

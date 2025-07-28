@@ -36,9 +36,9 @@ onBeforeMount(() => {
 
 // 获取数据s
 const getData = async () => {
-	const res = await apis[`table_base_list`]({ pageNum: 1, pageSize: 10 }, []);
-	const data = res.data
+	const res = await apis[`table_base_list`]();
 	console.log(res);
+	const data = res.data;
 	if (Array.isArray(data) && data.length) {
 		tableData.value = data;
 	} else {

@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts" name="vxe-table-封装">
-import { list } from '@/api/table/base';
+import apis from '@/api';
 import { useTemplateRef } from 'vue';
 
 const vxeRef = useTemplateRef('vxeRef');
@@ -21,7 +21,7 @@ const gridOptions = reactive<VxeGridOptions>({
 	rowConfig: {
 		isCurrent: true,
 	},
-	api: list,
+	api: apis.table_base_list,
 	isPage: false,
 });
 

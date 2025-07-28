@@ -44,13 +44,13 @@ export function useVxeTable(options?: VxeGridOptions) {
 	 */
 	const query = () => {
 		return new Promise(async (resolve, reject) => {
-			// 判断是否存在state.pageList属性
-			if (state.pageList) {
+			// 判断是否存在state.api属性
+			if (state.api) {
 				try {
 					// 开始加载数据，设置state.loading为true
 					state.loading = true;
-					// 调用state.pageList方法发起分页查询
-					const res = await state.pageList({
+					// 调用state.api方法发起分页查询
+					const res = await state.api({
 						...state.queryForm,
 						pageNum: state.pagination?.pageNum,
 						pageSize: state.pagination?.pageSize,
