@@ -1,7 +1,7 @@
 export default {
 	internationalization: {
-		egg: {
-			eggText: 'chinese',
+		example: {
+			exampleText: 'chinese',
 		},
 	},
 };

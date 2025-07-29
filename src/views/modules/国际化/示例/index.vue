@@ -4,7 +4,7 @@
 			{{ $t('test.title') }}
 		</p>
 		<p>
-			{{ $t('internationalization.egg.eggText') }}
+			{{ $t('internationalization.example.exampleText') }}
 		</p>
 	</div>
 </template>

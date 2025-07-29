@@ -31,6 +31,9 @@ import VxeUI from 'vxe-pc-ui'
 import { directive } from '@/directive'
 directive(app)
 
+/* --------------自定义插件----------------- */
+import plugins from './plugins' // plugins
+
 /* --------------其他插件----------------- */
 /* 国际化 */
 import { i18n } from '@/i18n'
@@ -61,6 +64,7 @@ app.component('ListColumn', VueVTable.ListColumn)
 app.use(pinia)
 	.use(router)
 	.use(i18n)
+	.use(plugins)
 	.use(ElementPlus)
 	.use(VxeUI)
 	.use(VxeUITable)

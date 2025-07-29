@@ -1,12 +1,15 @@
 <template>
 	<div>
 		<el-button type="primary" @click="deleteContent">删除</el-button>
+		<el-button type="primary" @click="modalDelete">modal删除</el-button>
 	</div>
 </template>
 
 <script setup lang="ts" name="MessageBox">
 import { ElMessage, ElMessageBox } from 'element-plus';
 import type { Action } from 'element-plus';
+
+const { proxy } = getCurrentInstance();
 
 function deleteContent() {
 	let flag = false;
@@ -56,6 +59,34 @@ function deleteContent() {
 					break;
 			}
 		});
+}
+
+function modalDelete() {
+	proxy.$modal.confirmDelete({
+		beforeConfirm: async (done) => {
+			setTimeout(() => {
+				console.log('beforeConfirm');
+				done();
+			}, 1000);
+		},
+		// 点击取消按钮
+		onCancel: (action) => {
+			console.log('oncancel', 'action:', action);
+		},
+		// 点击关闭按钮×
+		onClose: (action) => {
+			console.log('onClose', 'action:', action);
+		},
+		onConfirm: (action) => {
+			console.log('onConfirm', 'action:', action);
+		},
+		onSuccess: () => {
+			console.log('onSuccess');
+		},
+		onError: (error) => {
+			console.log('onError', 'error:', error);
+		},
+	});
 }
 </script>
 
