@@ -13,7 +13,7 @@ export default {
 		return confirmDialog({
 			title: '删除确认',
 			message: '是否删除此条数据？',
-			loadingText: '执行中...',
+			loadingText: '删除中...',
 			closeOnClickModal: true,
 			...options,
 		})

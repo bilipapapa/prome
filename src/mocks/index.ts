@@ -37,7 +37,7 @@ Object.values(modules)
 			return cb({ ...options, body, query, } as Args)
 		}
 
-		Mock.mock(new RegExp(url), method, callBack)
+		Mock.mock(new RegExp(`^${url}$`), method, callBack)
 	})
 
 export default Mock

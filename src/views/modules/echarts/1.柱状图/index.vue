@@ -1,38 +1,46 @@
-<!-- 请大佬帮看一下为什么会有border错位的情况 -->
 <template>
-	<div class="bar-box">
-		<div class="top">
-			<div class="tabs top-tabs">
-				<div class="tab" v-for="tab in topTab" :class="{ active: tab.name === barType }" @click="tabChange(tab)">
-					<span>{{ tab.name }}</span>
-				</div>
+	<div class="bar">
+		<div class="bar-box">
+			<!-- 上 -->
+			<div
+				class="tab top"
+				v-for="(tab, i) in topTab"
+				:class="{ active: tab.name === barType }"
+				:style="{ gridColumn: i + 1 }"
+				@click="tabChange(tab)"
+			>
+				<span>{{ tab.name }}</span>
 			</div>
-		</div>
 
-		<div class="left">
-			<div class="tabs left-tabs">
-				<div class="tab" v-for="tab in leftTab" :class="{ active: tab.name === barType }" @click="tabChange(tab)">
-					<span>{{ tab.name }}</span>
-				</div>
+			<!-- 下 -->
+			<div
+				class="tab bottom"
+				v-for="(tab, i) in bottomTab"
+				:class="{ active: tab.name === barType }"
+				:style="{ gridColumn: i + 2 }"
+				@click="tabChange(tab)"
+			>
+				<span>{{ tab.name }}</span>
 			</div>
-		</div>
-		<!-- echarts -->
-		<Bar class="center" v-loading="loading" element-loading-text="柱状图数据加载中···" :options="options" :opts="opts"></Bar>
 
-		<div class="right">
-			<div class="tabs right-tabs">
-				<div class="tab" v-for="tab in rightTab" :class="{ active: tab.name === barType }" @click="tabChange(tab)">
-					<span>{{ tab.name }}</span>
-				</div>
+			<!-- 左 -->
+			<div class="tab left" v-for="(tab, i) in leftTab" :class="{ active: tab.name === barType }" :style="{ gridRow: i + 2 }" @click="tabChange(tab)">
+				<span>{{ tab.name }}</span>
 			</div>
-		</div>
 
-		<div class="bottom">
-			<div class="tabs bottom-tabs">
-				<div class="tab" v-for="tab in bottomTab" :class="{ active: tab.name === barType }" @click="tabChange(tab)">
-					<span>{{ tab.name }}</span>
-				</div>
+			<!-- 右 -->
+			<div
+				class="tab right"
+				v-for="(tab, i) in rightTab"
+				:class="{ active: tab.name === barType }"
+				:style="{ gridRow: i + 1 }"
+				@click="tabChange(tab)"
+			>
+				<span>{{ tab.name }}</span>
 			</div>
+
+			<!-- echarts -->
+			<Bar class="center" v-loading="loading" element-loading-text="柱状图数据加载中···" :options="options" :opts="opts"></Bar>
 		</div>
 	</div>
 </template>
@@ -137,23 +145,20 @@ function tabChange(tab) {
 </script>
 
 <style lang="scss" scoped>
-.bar-box {
+.bar {
 	width: 100%;
 	height: 100%;
-	display: grid;
-	grid-template-rows: 1fr 8fr 1fr;
-	grid-template-columns: 1fr 8fr 1fr;
-	align-items: center;
-	font-size: 0.175rem;
-	gap: 0;
 	position: absolute;
-	> div {
-		width: 100%;
+	.bar-box {
 		height: 100%;
-	}
+		display: grid;
+		grid-template-columns: repeat(10, 1fr);
+		grid-template-rows: repeat(10, 1fr);
+		align-items: center;
+		font-size: 0.175rem;
+		gap: 0;
+		border: 1px solid var(--el-border-color-light);
 
-	.tabs {
-		display: flex;
 		.tab {
 			width: 100%;
 			height: 100%;
@@ -162,9 +167,11 @@ function tabChange(tab) {
 			align-items: center;
 			cursor: pointer;
 			transition: all 0.3s ease-in-out;
+			border: 1px solid var(--el-border-color-light);
 			&.active {
 				background-color: var(--el-color-primary-light-2);
 				color: #fff;
+				border-color: var(--el-color-primary-light-2);
 				&:hover {
 					color: #fff;
 				}
@@ -177,84 +184,27 @@ function tabChange(tab) {
 				background-color: var(--el-color-primary-light-1);
 			}
 		}
-	}
 
-	.top {
-		grid-column: 1 / 3;
-		grid-row: 1 / 2;
-		.tabs {
+		.center {
 			width: 100%;
 			height: 100%;
-			border-left: 1px solid var(--el-border-color-light);
-			border-top: 1px solid var(--el-border-color-light);
-			.tab {
-				border-right: 1px solid var(--el-border-color-light);
-				border-bottom: 1px solid var(--el-border-color-light);
-				&:nth-last-child(1) {
-					border-right: none;
-				}
-			}
+			grid-column: 2 / 10;
+			grid-row: 2 / 10;
+			border: 1px solid var(--el-border-color-light);
 		}
-	}
 
-	.left {
-		grid-column: 1 / 2;
-		grid-row: 2 / 4;
-		.tabs {
-			height: 100%;
-			flex-direction: column;
-			border-left: 1px solid var(--el-border-color-light);
-			border-bottom: 1px solid var(--el-border-color-light);
-			.tab {
-				border-top: 1px solid var(--el-border-color-light);
-				border-right: 1px solid var(--el-border-color-light);
-				&:nth-child(1) {
-					border-top: none;
-				}
-			}
+		/* 分配小矩形位置 */
+		.tab.top {
+			grid-row: 1;
 		}
-	}
-
-	.center {
-		width: 100%;
-		height: 100%;
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
-		border: none;
-	}
-
-	.right {
-		grid-column: 3 / 4;
-		grid-row: 1 / 3;
-		.tabs {
-			height: 100%;
-			flex-direction: column;
-			border-top: 1px solid var(--el-border-color-light);
-			border-right: 1px solid var(--el-border-color-light);
-			.tab {
-				border-left: 1px solid var(--el-border-color-light);
-				border-bottom: 1px solid var(--el-border-color-light);
-				&:nth-last-child(1) {
-					border-bottom: none;
-				}
-			}
+		.tab.bottom {
+			grid-row: 10;
 		}
-	}
-
-	.bottom {
-		grid-column: 2 / 4;
-		grid-row: 3 / 4;
-		.tabs {
-			height: 100%;
-			border-right: 1px solid var(--el-border-color-light);
-			border-bottom: 1px solid var(--el-border-color-light);
-			.tab {
-				border-top: 1px solid var(--el-border-color-light);
-				border-left: 1px solid var(--el-border-color-light);
-				&:nth-child(1) {
-					border-left: none;
-				}
-			}
+		.tab.left {
+			grid-column: 1;
+		}
+		.tab.right {
+			grid-column: 10;
 		}
 	}
 }

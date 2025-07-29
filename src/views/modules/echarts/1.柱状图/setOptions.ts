@@ -13,9 +13,9 @@ export async function base(options: any) {
 			type: 'bar',
 			data: data.map((item: any) => ({
 				value: item.value,
-				itemStyle: {
-					color: Mock.mock('@color'),
-				},
+				// itemStyle: {
+				// color: Mock.mock('@color'),
+				// },
 			})),
 		},
 	]

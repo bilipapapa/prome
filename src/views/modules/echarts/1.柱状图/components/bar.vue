@@ -41,9 +41,9 @@ const initChart = () => {
 	updateChart();
 };
 
-const updateChart = () => {
+const updateChart = debounce(() => {
 	chartInstance.setOption(props.options, props.opts);
-};
+}, 100);
 
 watch(
 	() => props.options,
