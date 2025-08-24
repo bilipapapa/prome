@@ -7,8 +7,8 @@ export const table_base_list: MockArg = [
 	'/table/base/list',
 	'get',
 	(args: Args) => {
-		console.log(args);
-		console.log(baseList);
+		// console.log(args);
+		// console.log(baseList);
 		const data = pagination(baseList, args.query)
 		return {
 			code: 200,
