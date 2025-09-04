@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElAside: typeof import('element-plus/es')['ElAside']
+    ElAutoResizer: typeof import('element-plus/es')['ElAutoResizer']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -38,10 +39,11 @@ declare module 'vue' {
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTimeSelect: typeof import('element-plus/es')['ElTimeSelect']
     ElTree: typeof import('element-plus/es')['ElTree']
+    ElTreeV2: typeof import('element-plus/es')['ElTreeV2']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     ElWatermark: typeof import('element-plus/es')['ElWatermark']
     IEpSetting: typeof import('~icons/ep/setting')['default']
-    ListTable: typeof import('./src/components/vTable/listTable/index.vue')['default']
+    ListTable: typeof import('./src/components/vTable/listTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VTable: typeof import('./src/components/vTable/index.vue')['default']

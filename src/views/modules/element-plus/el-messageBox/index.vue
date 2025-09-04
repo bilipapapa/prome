@@ -63,9 +63,9 @@ function deleteContent() {
 
 function modalDelete() {
 	proxy.$modal.confirmDelete({
-		beforeConfirm: async (done) => {
+		beforeClose: async (done) => {
 			setTimeout(() => {
-				console.log('beforeConfirm');
+				console.log('beforeClose');
 				done();
 			}, 1000);
 		},

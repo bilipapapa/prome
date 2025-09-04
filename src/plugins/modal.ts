@@ -29,7 +29,7 @@ interface ConfirmOptions {
 	showClose?: boolean
 	closeOnClickModal?: boolean
 	closeOnPressEscape?: boolean
-	beforeConfirm?: (done) => Promise<void> | void
+	beforeClose?: (done) => Promise<void> | void
 	onConfirm?: (action: Action) => void
 	onCancel?: (action: Action) => void
 	onClose?: (action: Action) => void
@@ -70,9 +70,9 @@ export async function confirmDialog(options: ConfirmOptions): Promise<boolean> {
 					instance.confirmButtonLoading = true
 					instance.confirmButtonText = (DEFAULT_OPTIONS.loadingText || options.loadingText) as string
 					try {
-						if (options.beforeConfirm) {
+						if (options.beforeClose) {
 							// 改为手动执行done
-							await options.beforeConfirm(done)
+							await options.beforeClose(done)
 						}
 						// done()
 					} catch (error) {
