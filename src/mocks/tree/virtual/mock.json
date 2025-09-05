@@ -1,0 +1,365 @@
+[
+	{
+		"id": "cloud-root-001",
+		"label": "智能云网络中枢",
+		"viewType": "cloud-network",
+		"children": [
+			{
+				"id": "group-virtual-001",
+				"label": "云虚拟节点集群",
+				"viewType": "group-virtualNode",
+				"children": [
+					{
+						"id": "virtual-node-001",
+						"label": "V1-AI计算节点",
+						"viewType": "virtualNode-collect",
+						"children": [
+							{
+								"id": "group-virtual-s-001",
+								"label": "S端点组（计算输出）",
+								"viewType": "group-sourcePoint",
+								"children": [
+									{
+										"id": "virtual-s-001",
+										"label": "S1-模型结果输出",
+										"viewType": "sourcePoint",
+										"children": []
+									},
+									{
+										"id": "virtual-s-002",
+										"label": "S2-日志数据上传",
+										"viewType": "sourcePoint",
+										"children": []
+									}
+								]
+							},
+							{
+								"id": "group-virtual-r-001",
+								"label": "R端点组（计算输入）",
+								"viewType": "group-receivePoint",
+								"children": [
+									{
+										"id": "virtual-r-001",
+										"label": "R1-训练数据接收",
+										"viewType": "receivePoint",
+										"children": []
+									},
+									{
+										"id": "virtual-r-002",
+										"label": "R2-配置参数导入",
+										"viewType": "receivePoint",
+										"children": []
+									}
+								]
+							}
+						]
+					},
+					{
+						"id": "virtual-node-002",
+						"label": "V2-缓存加速节点",
+						"viewType": "virtualNode-collect",
+						"children": [
+							{
+								"id": "group-virtual-s-002",
+								"label": "S端点组（缓存输出）",
+								"viewType": "group-sourcePoint",
+								"children": [
+									{
+										"id": "virtual-s-003",
+										"label": "S1-热点数据分发",
+										"viewType": "sourcePoint",
+										"children": []
+									}
+								]
+							},
+							{
+								"id": "group-virtual-r-002",
+								"label": "R端点组（缓存输入）",
+								"viewType": "group-receivePoint",
+								"children": [
+									{
+										"id": "virtual-r-003",
+										"label": "R1-数据缓存请求",
+										"viewType": "receivePoint",
+										"children": []
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "group-cloud-work-001",
+				"label": "云业务处理节点组",
+				"viewType": "group-cloud-workNode",
+				"children": [
+					{
+						"id": "cloud-work-001",
+						"label": "业务节点-用户服务",
+						"viewType": "cloud-workNode-field",
+						"children": [
+							{
+								"id": "cloud-work-f-001",
+								"label": "F1-用户接口模块",
+								"viewType": "cloud-workNode-field",
+								"children": [
+									{
+										"id": "group-cloud-work-s-001",
+										"label": "S端点组（用户数据输出）",
+										"viewType": "group-sourcePoint",
+										"children": [
+											{
+												"id": "cloud-work-s-001",
+												"label": "S1-用户信息返回",
+												"viewType": "sourcePoint",
+												"children": []
+											},
+											{
+												"id": "cloud-work-s-002",
+												"label": "S2-操作结果反馈",
+												"viewType": "sourcePoint",
+												"children": []
+											}
+										]
+									},
+									{
+										"id": "group-cloud-work-r-001",
+										"label": "R端点组（用户请求输入）",
+										"viewType": "group-receivePoint",
+										"children": [
+											{
+												"id": "cloud-work-r-001",
+												"label": "R1-登录请求接收",
+												"viewType": "receivePoint",
+												"children": []
+											},
+											{
+												"id": "cloud-work-r-002",
+												"label": "R2-信息修改请求",
+												"viewType": "receivePoint",
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"id": "cloud-work-002",
+						"label": "业务节点-订单处理",
+						"viewType": "cloud-workNode-field",
+						"children": [
+							{
+								"id": "cloud-work-f-002",
+								"label": "F1-订单接口模块",
+								"viewType": "cloud-workNode-field",
+								"children": [
+									{
+										"id": "group-cloud-work-s-002",
+										"label": "S端点组（订单数据输出）",
+										"viewType": "group-sourcePoint",
+										"children": [
+											{
+												"id": "cloud-work-s-003",
+												"label": "S1-订单状态同步",
+												"viewType": "sourcePoint",
+												"children": []
+											},
+											{
+												"id": "cloud-work-s-004",
+												"label": "S2-订单详情返回",
+												"viewType": "sourcePoint",
+												"children": []
+											}
+										]
+									},
+									{
+										"id": "group-cloud-work-r-002",
+										"label": "R端点组（订单请求输入）",
+										"viewType": "group-receivePoint",
+										"children": [
+											{
+												"id": "cloud-work-r-003",
+												"label": "R1-订单创建请求",
+												"viewType": "receivePoint",
+												"children": []
+											},
+											{
+												"id": "cloud-work-r-004",
+												"label": "R2-订单取消请求",
+												"viewType": "receivePoint",
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "group-cloud-backup-001",
+				"label": "云数据备份节点组",
+				"viewType": "group-cloud-redundantNode",
+				"children": [
+					{
+						"id": "cloud-backup-001",
+						"label": "备份节点-用户数据",
+						"viewType": "cloud-backupNode-field",
+						"children": [
+							{
+								"id": "cloud-backup-f-001",
+								"label": "F1-备份接口模块",
+								"viewType": "cloud-backupNode-field",
+								"children": [
+									{
+										"id": "group-cloud-backup-s-001",
+										"label": "S端点组（备份数据输出）",
+										"viewType": "group-sourcePoint",
+										"children": [
+											{
+												"id": "cloud-backup-s-001",
+												"label": "S1-备份文件下载",
+												"viewType": "sourcePoint",
+												"children": []
+											},
+											{
+												"id": "cloud-backup-s-002",
+												"label": "S2-备份状态反馈",
+												"viewType": "sourcePoint",
+												"children": []
+											}
+										]
+									},
+									{
+										"id": "group-cloud-backup-r-001",
+										"label": "R端点组（备份数据输入）",
+										"viewType": "group-receivePoint",
+										"children": [
+											{
+												"id": "cloud-backup-r-001",
+												"label": "R1-增量备份请求",
+												"viewType": "receivePoint",
+												"children": []
+											},
+											{
+												"id": "cloud-backup-r-002",
+												"label": "R2-全量备份请求",
+												"viewType": "receivePoint",
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "group-fog-001",
+				"label": "边缘雾网络集群",
+				"viewType": "group-fog-network",
+				"children": [
+					{
+						"id": "fog-node-001",
+						"label": "雾节点-设备监控",
+						"viewType": "fog-network",
+						"children": [
+							{
+								"id": "fog-f-001",
+								"label": "F1-设备接口模块",
+								"viewType": "cloud-workNode-field",
+								"children": [
+									{
+										"id": "group-fog-s-001",
+										"label": "S端点组（监控数据输出）",
+										"viewType": "group-sourcePoint",
+										"children": [
+											{
+												"id": "fog-s-001",
+												"label": "S1-设备状态上传",
+												"viewType": "sourcePoint",
+												"children": []
+											},
+											{
+												"id": "fog-s-002",
+												"label": "S2-告警信息推送",
+												"viewType": "sourcePoint",
+												"children": []
+											}
+										]
+									},
+									{
+										"id": "group-fog-r-001",
+										"label": "R端点组（控制指令输入）",
+										"viewType": "group-receivePoint",
+										"children": [
+											{
+												"id": "fog-r-001",
+												"label": "R1-设备启动指令",
+												"viewType": "receivePoint",
+												"highLight": false,
+												"children": []
+											},
+											{
+												"id": "fog-r-002",
+												"label": "R2-参数调整指令",
+												"viewType": "receivePoint",
+												"highLight": false,
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"id": "fog-bridge-001",
+						"label": "雾桥节点-边缘互联",
+						"viewType": "group-fog-bridgeNode",
+						"children": [
+							{
+								"id": "fog-bridge-f-001",
+								"label": "F1-互联接口模块",
+								"viewType": "cloud-bridgeNode-field",
+								"children": [
+									{
+										"id": "group-fog-bridge-s-001",
+										"label": "S端点组（互联数据输出）",
+										"viewType": "group-sourcePoint",
+										"children": [
+											{
+												"id": "fog-bridge-s-001",
+												"label": "S1-跨雾网数据转发",
+												"viewType": "sourcePoint",
+												"children": []
+											}
+										]
+									},
+									{
+										"id": "group-fog-bridge-r-001",
+										"label": "R端点组（互联数据输入）",
+										"viewType": "group-receivePoint",
+										"children": [
+											{
+												"id": "fog-bridge-r-001",
+												"label": "R1-跨雾网数据接收",
+												"viewType": "receivePoint",
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

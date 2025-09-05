@@ -17,7 +17,7 @@
 					</template>
 
 					<div style="min-height: 200px; max-height: 600px">
-						<p v-for="(item,index) in historyList" :key="index">
+						<p v-for="(item, index) in historyList" :key="index">
 							<span :style="{ color: item.color }">
 								{{ `${index + 1}. ${item.message}` }}
 							</span>

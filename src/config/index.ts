@@ -1,3 +1,3 @@
-import './falsy-passive';
-import './vxe-table';
+import './falsy-passive'
 import '@/utils/rem'
+import '@/styles/vxe/config'

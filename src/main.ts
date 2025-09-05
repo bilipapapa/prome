@@ -24,6 +24,7 @@ const app = createApp(App)
 /* --------------UI框架----------------- */
 /* element-plus */
 import ElementPlus from 'element-plus'
+import ElementIcons from '@/components/SvgIcon/svgIcon'	// 注册element-plus图标
 /* vxe UI 组件库 */
 import VxeUI from 'vxe-pc-ui'
 
@@ -66,6 +67,7 @@ app.use(pinia)
 	.use(i18n)
 	.use(plugins)
 	.use(ElementPlus)
+	.use(ElementIcons)
 	.use(VxeUI)
 	.use(VxeUITable)
 	.use(hljsVuePlugin)

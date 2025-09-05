@@ -1,20 +1,17 @@
-import { VxeUI } from 'vxe-table';
+import { VxeUI } from 'vxe-table'
+// VxeUI 是 Vxe 库通用全局实例（也可以使用旧别名 VXETable）
 
-/**
- * vxe-table 全局配置
- */
 VxeUI.setConfig({
-	size: null, // 全局尺寸
+	// size: null, // 全局尺寸
 	// zIndex: 999, // 全局 zIndex 起始值，如果项目的的 z-index 样式值过大时就需要跟随设置更大，避免被遮挡；新版本可以使用 dom-zindex 共享配置
 	// version: 1, // 版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置数据
-	emptyCell: '　',
 
+	emptyCell: '　',
 	table: {
 		showHeader: true,
+		delayHover: 250,
 		autoResize: true,
 		minHeight: 144,
-		border: 'full',
-		align: 'center',
 		// keepSource: false,
 		// showOverflow: null,
 		// showHeaderOverflow: null,
@@ -22,29 +19,46 @@ VxeUI.setConfig({
 		// resizeInterval: 500,
 		// size: null,
 		// zIndex: null,
-		// stripe: false,
+		stripe: false,
+		border: true,
 		// round: false,
 		// emptyText: '暂无数据',
 		// emptyRender: {
 		//   name: ''
 		// },
 		rowConfig: {
-			keyField: '_X_ROW_KEY', // 行数据的唯一主键字段名，必须设置，随时都可能会被改变
-		},
-		columnConfig: {
-			resizable: true,
+			// keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
+			isHover: true,
 		},
 		resizeConfig: {
-			refreshDelay: 250,
+			// refreshDelay: 20
+		},
+		resizableConfig: {
+			dragMode: 'auto',
+			showDragTip: true,
+			isSyncAutoHeight: true,
+			isSyncAutoWidth: true,
+			minHeight: 18,
 		},
 		radioConfig: {
 			// trigger: 'default'
 			strict: true,
 		},
+		rowDragConfig: {
+			showIcon: true,
+			animation: true,
+			showGuidesStatus: true,
+			showDragTip: true,
+		},
+		columnDragConfig: {
+			showIcon: true,
+			animation: true,
+			showGuidesStatus: true,
+			showDragTip: true,
+		},
 		checkboxConfig: {
 			// trigger: 'default',
 			strict: true,
-			isShiftKey: true,
 		},
 		tooltipConfig: {
 			enterable: true,
@@ -55,11 +69,30 @@ VxeUI.setConfig({
 			autoPos: true,
 			message: 'inline',
 			msgMode: 'single',
+			theme: 'beautify',
+		},
+		columnConfig: {
+			autoOptions: {
+				isCalcHeader: true,
+				isCalcBody: true,
+				isCalcFooter: true,
+			},
+			maxFixedSize: 4,
+		},
+		cellConfig: {
+			padding: true,
+		},
+		headerCellConfig: {
+			height: 36,
+		},
+		footerCellConfig: {
+			height: 'unset',
 		},
 		// menuConfig: {
 		//   visibleMethod () {}
 		// },
 		customConfig: {
+			// enabled: false,
 			allowVisible: true,
 			allowResizable: true,
 			allowFixed: true,
@@ -67,6 +100,15 @@ VxeUI.setConfig({
 			showFooter: true,
 			placement: 'top-right',
 			//  storage: false,
+			storeOptions: {
+				visible: true,
+				resizable: true,
+				sort: true,
+				fixed: true,
+				// rowGroup: false,
+				// aggFunc: false
+			},
+			// autoAggGroupValues: false,
 			//  checkMethod () {},
 			modalOptions: {
 				showMaximize: true,
@@ -75,6 +117,12 @@ VxeUI.setConfig({
 				resize: true,
 				escClosable: true,
 			},
+			drawerOptions: {
+				mask: true,
+				lockView: true,
+				escClosable: true,
+				resize: true,
+			},
 		},
 		sortConfig: {
 			// remote: false,
@@ -82,14 +130,31 @@ VxeUI.setConfig({
 			// orders: ['asc', 'desc', null],
 			// sortMethod: null,
 			showIcon: true,
+			allowClear: true,
+			allowBtn: true,
 			iconLayout: 'vertical',
 		},
 		filterConfig: {
 			// remote: false,
 			// filterMethod: null,
+			// destroyOnClose: false,
+			// isEvery: false,
+			multiple: true,
 			showIcon: true,
 		},
+		aggregateConfig: {
+			padding: true,
+			rowField: 'id',
+			parentField: '_X_ROW_PARENT_KEY',
+			childrenField: '_X_ROW_CHILDREN',
+			mapChildrenField: '_X_ROW_CHILD_LIST',
+			indent: 20,
+			showIcon: true,
+			maxGroupSize: 4,
+			showAggFuncTitle: true,
+		},
 		treeConfig: {
+			padding: true,
 			rowField: 'id',
 			parentField: 'parentId',
 			childrenField: 'children',
@@ -101,40 +166,34 @@ VxeUI.setConfig({
 		expandConfig: {
 			// trigger: 'default',
 			showIcon: true,
+			mode: 'fixed',
 		},
 		editConfig: {
-			mode: 'cell',
+			// mode: 'cell',
 			showIcon: true,
 			showAsterisk: true,
+			autoFocus: true,
 		},
-		importConfig: {
-			_typeMaps: {
-				csv: 1,
-				html: 1,
-				xml: 1,
-				txt: 1,
-			},
-		},
-		exportConfig: {
-			_typeMaps: {
-				csv: 1,
-				html: 1,
-				xml: 1,
-				txt: 1,
-			},
-		},
+		importConfig: {},
+		exportConfig: {},
 		printConfig: {},
 		mouseConfig: {
 			extension: true,
 		},
 		keyboardConfig: {
-			isArrow: true,
+			isAll: true,
 			isEsc: true,
-			isEnter: true,
 		},
 		areaConfig: {
 			autoClear: true,
 			selectCellByHeader: true,
+			selectCellByBody: true,
+			extendDirection: {
+				top: true,
+				left: true,
+				bottom: true,
+				right: true,
+			},
 		},
 		clipConfig: {
 			isCopy: true,
@@ -145,15 +204,22 @@ VxeUI.setConfig({
 			isFind: true,
 			isReplace: true,
 		},
-		scrollX: {
+		virtualXConfig: {
 			// enabled: false,
-			gt: 60,
-			// oSize: 0
+			gt: 24,
+			preSize: 1,
+			oSize: 0,
 		},
-		scrollY: {
+		virtualYConfig: {
 			// enabled: false,
+			// mode: 'wheel',
 			gt: 100,
-			// oSize: 0
+			preSize: 1,
+			oSize: 0,
+		},
+		scrollbarConfig: {
+			// width: 14,
+			// height: 14
 		},
 	},
 	// export: {
@@ -178,8 +244,10 @@ VxeUI.setConfig({
 		proxyConfig: {
 			enabled: true,
 			autoLoad: true,
-			message: true,
-			props: {
+			showLoading: true,
+			showResponseMsg: true,
+			showActionMsg: true,
+			response: {
 				list: null,
 				result: 'result',
 				total: 'page.total',
@@ -205,47 +273,4 @@ VxeUI.setConfig({
 		// },
 		// buttons: []
 	},
-});
-
-/**
- * vxe-table 全局图标配置
- */
-VxeUI.setIcon({
-	// table
-	TABLE_SORT_ASC: 'vxe-icon-caret-up',
-	TABLE_SORT_DESC: 'vxe-icon-caret-down',
-	TABLE_FILTER_NONE: 'vxe-icon-funnel',
-	TABLE_FILTER_MATCH: 'vxe-icon-funnel',
-	TABLE_EDIT: 'vxe-icon-edit',
-	TABLE_TREE_LOADED: 'vxe-icon-spinner roll',
-	TABLE_TREE_OPEN: 'vxe-icon-caret-right rotate90',
-	TABLE_TREE_CLOSE: 'vxe-icon-caret-right',
-	TABLE_EXPAND_LOADED: 'vxe-icon-spinner roll',
-	TABLE_EXPAND_OPEN: 'vxe-icon-arrow-right rotate90',
-	TABLE_EXPAND_CLOSE: 'vxe-icon-arrow-right',
-	TABLE_CHECKBOX_CHECKED: 'vxe-icon-checkbox-checked',
-	TABLE_CHECKBOX_UNCHECKED: 'vxe-icon-checkbox-unchecked',
-	TABLE_CHECKBOX_INDETERMINATE: 'vxe-icon-checkbox-indeterminate',
-	TABLE_RADIO_CHECKED: 'vxe-icon-radio-checked',
-	TABLE_RADIO_UNCHECKED: 'vxe-icon-radio-unchecked',
-
-	// toolbar
-	TOOLBAR_TOOLS_REFRESH: 'vxe-icon-repeat',
-	TOOLBAR_TOOLS_REFRESH_LOADING: 'vxe-icon-repeat roll',
-	TOOLBAR_TOOLS_IMPORT: 'vxe-icon-upload',
-	TOOLBAR_TOOLS_EXPORT: 'vxe-icon-download',
-	TOOLBAR_TOOLS_PRINT: 'vxe-icon-print',
-	TOOLBAR_TOOLS_FULLSCREEN: 'vxe-icon-fullscreen',
-	TOOLBAR_TOOLS_MINIMIZE: 'vxe-icon-minimize',
-	TOOLBAR_TOOLS_CUSTOM: 'vxe-icon-custom-column',
-	TOOLBAR_TOOLS_FIXED_LEFT: 'vxe-icon-fixed-left',
-	TOOLBAR_TOOLS_FIXED_RIGHT: 'vxe-icon-fixed-right',
-});
-
-/**
- * vxe-table 全局主题配置
- */
-// 切换为默认主题
-VxeUI.setTheme('light');
-// 切换为暗黑主题
-// VxeUI.setTheme('dark');
+})

@@ -11,7 +11,7 @@
 		"lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src"
 	},
 	"dependencies": {
-		"@element-plus/icons-vue": "^2.3.1",
+		"@element-plus/icons-vue": "^2.3.2",
 		"@highlightjs/vue-plugin": "^2.1.0",
 		"@visactor/vue-vtable": "^1.19.3",
 		"@vxe-ui/plugin-render-element": "^4.1.0",

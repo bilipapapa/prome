@@ -1,8 +1,14 @@
+.vxe-cell--checkbox .vxe-checkbox--icon {
+	font-weight: 400 !important;
+}
+
 .vxe-table {
+
 	// table 复选框宽度
 	.vxe-checkbox--icon {
 		font-weight: 400 !important;
 	}
+
 	// 表格中input大小和单元格一致
 	.vxe-table--body {
 		.vxe-cell.c--tooltip {
@@ -13,14 +19,27 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
 			.vxe-cell--label {
 				line-height: 36px;
 			}
+
 			.vxe-input {
 				height: 100%;
 				border-radius: 0;
 			}
 		}
+
+		.vxe-cell--wrapper {
+			flex: 1;
+			min-height: 0;
+			min-width: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: inherit;
+		}
+
 		// 校验提示文字位置
 		.vxe-cell--valid-error-hint {
 			bottom: -0.5rem;
