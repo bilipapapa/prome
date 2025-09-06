@@ -1,7 +1,3 @@
-.vxe-cell--checkbox .vxe-checkbox--icon {
-	font-weight: 400 !important;
-}
-
 .vxe-table {
 
 	// table 复选框宽度
@@ -9,12 +5,10 @@
 		font-weight: 400 !important;
 	}
 
-	// 表格中input大小和单元格一致
 	.vxe-table--body {
-		.vxe-cell.c--tooltip {
+		.vxe-cell {
 			width: 100% !important;
 			height: 100%;
-			padding: 0 !important;
 			// 单元格内部的内容垂直居中
 			display: flex;
 			justify-content: center;
@@ -22,11 +16,6 @@
 
 			.vxe-cell--label {
 				line-height: 36px;
-			}
-
-			.vxe-input {
-				height: 100%;
-				border-radius: 0;
 			}
 		}
 
@@ -43,6 +32,15 @@
 		// 校验提示文字位置
 		.vxe-cell--valid-error-hint {
 			bottom: -0.5rem;
+		}
+
+		.vxe-table--body-wrapper::-webkit-scrollbar,
+		.vxe-table--header-wrapper::-webkit-scrollbar,
+		.vxe-table--footer-wrapper::-webkit-scrollbar {
+			width: 12px;
+			/* 垂直条粗细 */
+			height: 12px;
+			/* 水平条粗细 */
 		}
 	}
 }

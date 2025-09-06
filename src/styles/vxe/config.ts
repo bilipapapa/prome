@@ -12,6 +12,7 @@ VxeUI.setConfig({
 		delayHover: 250,
 		autoResize: true,
 		minHeight: 144,
+		align: 'center',
 		// keepSource: false,
 		// showOverflow: null,
 		// showHeaderOverflow: null,
@@ -27,7 +28,7 @@ VxeUI.setConfig({
 		//   name: ''
 		// },
 		rowConfig: {
-			// keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
+			keyField: '_X_ROW_KEY', // 行数据的唯一主键字段名
 			isHover: true,
 		},
 		resizeConfig: {
@@ -206,7 +207,7 @@ VxeUI.setConfig({
 		},
 		virtualXConfig: {
 			// enabled: false,
-			gt: 24,
+			gt: 100,
 			preSize: 1,
 			oSize: 0,
 		},
@@ -218,8 +219,8 @@ VxeUI.setConfig({
 			oSize: 0,
 		},
 		scrollbarConfig: {
-			// width: 14,
-			// height: 14
+			width: 14,
+			height: 14
 		},
 	},
 	// export: {

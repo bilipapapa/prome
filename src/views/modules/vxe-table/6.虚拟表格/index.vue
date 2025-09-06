@@ -16,7 +16,7 @@
 						</span>
 					</template>
 
-					<div style="min-height: 200px; max-height: 600px">
+					<div style="min-height: 200px; max-height: 600px; overflow: auto">
 						<p v-for="(item, index) in historyList" :key="index">
 							<span :style="{ color: item.color }">
 								{{ `${index + 1}. ${item.message}` }}
@@ -32,9 +32,11 @@
 				<vxe-table
 					ref="vxeTableRef"
 					:loading="loading"
+					:scrollbar-config="{ minSize: 30 }"
 					show-overflow
 					show-header-overflow
 					show-footer-overflow
+					:column-config="{ autoOptions: { isCalcBody: false } }"
 					:virtual-x-config="{ enabled: true, gt: 0 }"
 					:virtual-y-config="{ enabled: true, gt: 0 }"
 					:height="height"
@@ -107,6 +109,7 @@ const scrollBottom = () => {
 	.vxe-table-box {
 		flex: 1;
 		min-height: 0;
+		min-width: 0;
 	}
 }
 </style>
