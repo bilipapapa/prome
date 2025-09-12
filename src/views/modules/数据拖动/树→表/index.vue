@@ -35,8 +35,7 @@
 				<template #default="{ height }">
 					<vxe-table
 						ref="vxeTableRef"
-						min-height="0"
-						:max-height="height - 80"
+						:height="height - 80"
 						:row-config="{ isHover: false }"
 						keep-source
 						:show-overflow="false"
@@ -225,8 +224,8 @@ const onTreeDragStart = (event, data) => {
 	if (hasScrollY) {
 		hasScroll.value = true;
 	} else {
-		const { row: newRow } = vxeTableRef.value.insertAt({ insert: true }, -1).then(() => {
-			vxeTableRef.value.scrollToRow(newRow);
+		vxeTableRef.value.insertAt({ insert: true }, -1).then(({ row }) => {
+			vxeTableRef.value.scrollToRow(row);
 		});
 		const { fullData } = vxeTableRef.value.getTableData();
 		mergeCells.value = [
@@ -322,6 +321,7 @@ const onSelect = (data) => {
 
 const receiveItemDelete = (row, index) => {
 	row.receive = row.receive.filter((_, i) => i !== index);
+	vxeTableRef.value.recalculate(true);
 };
 </script>
 

@@ -1,6 +1,6 @@
 import { Args, MockArg } from '@/mocks'
 import treeData from './mock.json'
-import { tree, tree2, tree3 } from './mock'
+import { tree, tree2, tree3, cloudNetWork } from './mock'
 
 // 获取树结构数据
 export const tree_virtual_net: MockArg = [
@@ -18,16 +18,21 @@ export const tree_virtual_net: MockArg = [
 ]
 
 // 百
-export const table_virtual_tree = (): MockArg => {
-	return ['/table/virtual/tree', 'get', tree]
+export const tree_virtual_tree = (): MockArg => {
+	return ['/tree/virtual/tree', 'get', tree]
 }
 
 // 千
-export const table_virtual_tree2 = (): MockArg => {
-	return ['/table/virtual/tree2', 'get', tree2]
+export const tree_virtual_tree2 = (): MockArg => {
+	return ['/tree/virtual/tree2', 'get', tree2]
 }
 
 // 万
-export const table_virtual_tree3 = (): MockArg => {
-	return ['/table/virtual/tree3', 'get', tree3]
+export const tree_virtual_tree3 = (): MockArg => {
+	return ['/tree/virtual/tree3', 'get', tree3]
+}
+
+
+export const tree_virtual_cloudNetWork = (): MockArg => {
+	return ['/tree/virtual/cloudNetWork', 'get', cloudNetWork]
 }

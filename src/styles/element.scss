@@ -210,3 +210,20 @@
 		color: var(--el-color-primary);
 	}
 }
+
+/* Descriptions 描述列表
+------------------------------- */
+.el-descriptions__table {
+	table-layout: fixed;
+	width: 100%;
+	.el-descriptions__cell {
+		min-width: 0;
+	}
+	.el-descriptions__content {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		padding: 3px !important;
+		width: auto !important;
+	}
+}
