@@ -928,3 +928,42 @@ export const cloudNetWork = {
     ]
   }]
 }
+
+export const pipeMock = {
+  "data|80000": [
+    {
+      "pipeNo": "pipeNo_@string(12)",
+      "pipeType": "pipeType_@string(12)",
+      "pipeDataType": "pipeDataType_@string(12)",
+      "pipeDescription": "@cparagraph(1)",
+      "sourcePoint": {
+        "uniqueId": "@guid",
+        "label": "S端点-PIPE",
+        "viewType": "pipe-sourcePoint",
+        "pointNo": "@integer(0,9999)",
+        "pointName": "pointName_@string(10)",
+        "physicalMeaning": "@csentence(1,3)",
+        "remark": "@cparagraph(1)",
+        "dataType": "dataType_@string(10)",
+        "unit": "unit_@string(6)",
+        "pipeNo": "@integer(0,9999)",
+        "pipeType": "pipeType_@string(8)"
+      },
+      "receivePoints|10": [
+        {
+          "uniqueId": "@guid",
+          "label": "R端点-PIPE",
+          "viewType": "pipe-receivePoint",
+          "pointNo": "@integer(0,9999)",
+          "pointName": "pointName_@string(10)",
+          "physicalMeaning": "@csentence(1,3)",
+          "remark": "@cparagraph(1)",
+          "dataType": "dataType_@string(10)",
+          "unit": "unit_@string(6)",
+          "pipeNo": "@integer(0,9999)",
+          "pipeType": "pipeType_@string(8)"
+        }
+      ]
+    }
+  ],
+}

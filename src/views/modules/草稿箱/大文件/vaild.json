@@ -1,0 +1,779 @@
+[
+	{
+			"uniqueId": "uuid-xxxx-xxxx",
+			"cloudNo": "cloudNo_7d6f5a8e8e6b",
+			"label": "云网络",
+			"viewType": "cloud",
+			"modelCode": "modelCode_a14bd6f669ae",
+			"modelName": "modelName_b776e94f79fe",
+			"measurementPeriod": 0,
+			"encryptType": "encryptType_9200b2042e18",
+			"encryptSeed": "encryptSeed_ad8233e3fa57",
+			"networkType": "networkType_9092cb38be71",
+			"nodeCount": 0,
+			"modelDescription": "modelDescription_0cbc68cf18ad",
+			"modelStatus": "modelStatus_2873246c7bda",
+			"pipeDetail": [
+					{
+							"pipeNo": "pipeNo_b6fecf6e7c2d",
+							"pipeType": "pipeType_949ff7dc8e3a",
+							"pipeDataType": "pipeDataType_e9475078a744",
+							"pipeDescription": "pipeDescription_789998a036ba",
+							"sourcePoint": {},
+							"receivePoints": []
+					}
+			],
+			"children": [
+					{
+							"uniqueId": "group-virtual",
+							"label": "云虚拟节点",
+							"viewType": "group-virtual",
+							"children": [
+									{
+											"uniqueId": "virtual-f1",
+											"label": "F1-数字设备",
+											"viewType": "virtual-f",
+											"children": [
+													{
+															"uniqueId": "asfdafafaf",
+															"label": "R端点",
+															"viewType": "group-virtual-S",
+															"children": []
+													}
+											]
+									},
+									{
+											"uniqueId": "virtual-f2",
+											"label": "F2-数字面板",
+											"viewType": "virtual-f",
+											"children": []
+									}
+							]
+					},
+					{
+							"uniqueId": "group-cloud-work1",
+							"label": "普通节点",
+							"viewType": "group-cloud-work",
+							"children": [
+									{
+											"uniqueId": "cloud-work1",
+											"redundantGroupId": "",
+											"label": "普通节点1",
+											"viewType": "cloud-work",
+											"nodeNo": 0,
+											"backupNodeNo": 0,
+											"nodeModel": "nodeModel_92c1089a1e49",
+											"nodeName": "nodeName_90aad9a87fad",
+											"nodeId": "nodeId_5c2adff30217",
+											"softVersion": "softVersion_2685e2d26a7b",
+											"nodeType": "nodeType_4b39063b5587",
+											"syncNodeFlag": "syncNodeFlag_7cd90f32e1c9",
+											"syncNodeNo": "syncNodeNo_66857e316cca",
+											"networkProperties": [
+													{
+															"propertyNo": 0,
+															"propertyName": "propertyName_ac248124231f",
+															"physicalMeaning": "physicalMeaning_7a5a11142018",
+															"remark": "remark_24b75ed4435b",
+															"dataType": "dataType_73f748821326",
+															"textValue": "textValue_10b1a1417b66"
+													}
+											],
+											"children": [
+													{
+															"uniqueId": "cloud-work-f11",
+															"label": "F1-xxxxxxxx",
+															"viewType": "cloud-work-f",
+															"fieldId": 0,
+															"fieldNo": 0,
+															"fieldName": "fieldName_3aae5fcab23e",
+															"fieldStatus": "fieldStatus_ac0a81749842",
+															"roleCount": 0,
+															"specialProperties": [
+																	{
+																			"propertyNo": 0,
+																			"propertyName": "propertyName_b7a250f8fdac",
+																			"physicalMeaning": "physicalMeaning_10decf7cfa84",
+																			"remark": "remark_558505cbb753",
+																			"dataType": "dataType_1260605f96c4",
+																			"textValue": "textValue_2d26d6c03ae7"
+																	}
+															],
+															"protocolProperties": [
+																	{
+																			"blockNo": "blockNo_ee5eac8cf3c6",
+																			"functionId": "functionId_4652f8cefa7c",
+																			"functionNo": "functionNo_6e304b829286",
+																			"dataType": "dataType_03659b245aaf",
+																			"functionDescription": "functionDescription_346446d6d661",
+																			"unit": "unit_0d52ee5cf3be",
+																			"functionStatus": "functionStatus_32cc1f369694",
+																			"registerAddress": "registerAddress_e409165f3dce",
+																			"registerDataType": "registerDataType_ea44fd883320",
+																			"registerNum": 0,
+																			"functionCode": "functionCode_39341fc1d2b6",
+																			"gain": 0,
+																			"offset": 0,
+																			"byteOrder": "byteOrder_08982640a1a1",
+																			"offsetBit": 0,
+																			"significanceBit": 0
+																	}
+															],
+															"children": [
+																	{
+																			"uniqueId": "group-cloud-work-s3",
+																			"label": "S端点",
+																			"viewType": "group-cloud-work-s",
+																			"children": [
+																					{
+																							"uniqueId": "cloud-work-work-s1",
+																							"label": "S1-xxxxxx",
+																							"viewType": "cloud-work-s",
+																							"pointNo": 0,
+																							"pointName": "pointName_9b5cd84042aa",
+																							"physicalMeaning": "physicalMeaning_dce5ca0829f0",
+																							"remark": "remark_7f9f82a9ec9a",
+																							"dataType": "dataType_f3b42aad812d",
+																							"unit": "unit_83fd953a21f5",
+																							"pipeNo": 0,
+																							"pipeType": "pipeType_ef53758905f9"
+																					}
+																			]
+																	},
+																	{
+																			"uniqueId": "group-cloud-work-r3",
+																			"label": "R端点",
+																			"viewType": "group-cloud-work-r",
+																			"children": [
+																					{
+																							"uniqueId": "cloud-work-r1",
+																							"label": "R1-xxxxxx",
+																							"viewType": "cloud-work-r",
+																							"pointNo": 0,
+																							"pointName": "pointName_22537a878d8d",
+																							"physicalMeaning": "physicalMeaning_51c0612bae9a",
+																							"remark": "remark_b04f058faa89",
+																							"dataType": "dataType_9062690024c9",
+																							"unit": "unit_8ed68f834098",
+																							"pipeNo": 0,
+																							"pipeType": "pipeType_fd7f05b291d5"
+																					}
+																			]
+																	}
+															]
+													}
+											]
+									},
+									{
+											"uniqueId": "cloud-backup1",
+											"redundantGroupId": "",
+											"label": "备份节点1",
+											"viewType": "cloud-backup",
+											"nodeNo": 0,
+											"backupNodeNo": 0,
+											"nodeModel": "nodeModel_2d035bd2f6c9",
+											"nodeName": "nodeName_e18206b664d8",
+											"nodeId": "nodeId_f3820d1954de",
+											"softVersion": "softVersion_27bf74eb41e1",
+											"nodeType": "nodeType_6e48b5e11031",
+											"syncNodeFlag": "syncNodeFlag_595f22130d8b",
+											"syncNodeNo": "syncNodeNo_f1f75f762f14",
+											"networkProperties": [
+													{
+															"propertyNo": 0,
+															"propertyName": "propertyName_ac248124231f",
+															"physicalMeaning": "physicalMeaning_7a5a11142018",
+															"remark": "remark_24b75ed4435b",
+															"dataType": "dataType_73f748821326",
+															"textValue": "textValue_10b1a1417b66"
+													}
+											],
+											"children": [
+													{
+															"uniqueId": "cloud-backup-f1",
+															"label": "F1-xxxxx",
+															"viewType": "cloud-backup-f",
+															"fieldId": 0,
+															"fieldNo": 0,
+															"fieldName": "fieldName_22f31a9961b9",
+															"fieldStatus": "fieldStatus_0e2f3fb5c13c",
+															"roleCount": 0,
+															"specialProperties": [
+																	{
+																			"propertyNo": 0,
+																			"propertyName": "propertyName_b7a250f8fdac",
+																			"physicalMeaning": "physicalMeaning_10decf7cfa84",
+																			"remark": "remark_558505cbb753",
+																			"dataType": "dataType_1260605f96c4",
+																			"textValue": "textValue_2d26d6c03ae7"
+																	}
+															],
+															"protocolProperties": [
+																	{
+																			"blockNo": "blockNo_ee5eac8cf3c6",
+																			"functionId": "functionId_4652f8cefa7c",
+																			"functionNo": "functionNo_6e304b829286",
+																			"dataType": "dataType_03659b245aaf",
+																			"functionDescription": "functionDescription_346446d6d661",
+																			"unit": "unit_0d52ee5cf3be",
+																			"functionStatus": "functionStatus_32cc1f369694",
+																			"registerAddress": "registerAddress_e409165f3dce",
+																			"registerDataType": "registerDataType_ea44fd883320",
+																			"registerNum": 0,
+																			"functionCode": "functionCode_39341fc1d2b6",
+																			"gain": 0,
+																			"offset": 0,
+																			"byteOrder": "byteOrder_08982640a1a1",
+																			"offsetBit": 0,
+																			"significanceBit": 0
+																	}
+															],
+															"children": [
+																	{
+																			"uniqueId": "group-cloud-backup-s4",
+																			"label": "S端点",
+																			"viewType": "group-cloud-backup-s",
+																			"children": [
+																					{
+																							"uniqueId": "cloud-backup-s1",
+																							"label": "s1-xxxxxxx",
+																							"viewType": "cloud-backup-s",
+																							"pointNo": 0,
+																							"pointName": "pointName_1a2fd9086a99",
+																							"physicalMeaning": "physicalMeaning_9f36ed47c16c",
+																							"remark": "remark_869266b1db91",
+																							"dataType": "dataType_334531bc3de8",
+																							"unit": "unit_acfc002005af",
+																							"pipeNo": 0,
+																							"pipeType": "pipeType_dab042a4cda0"
+																					}
+																			]
+																	},
+																	{
+																			"uniqueId": "group-cloud-backup-r4",
+																			"label": "R端点",
+																			"viewType": "group-cloud-backup-r",
+																			"children": [
+																					{
+																							"uniqueId": "cloud-backup-r1",
+																							"label": "s1-xxxxxxx",
+																							"viewType": "cloud-backup-r",
+																							"pointNo": 0,
+																							"pointName": "pointName_1a2fd9086a99",
+																							"physicalMeaning": "physicalMeaning_9f36ed47c16c",
+																							"remark": "remark_869266b1db91",
+																							"dataType": "dataType_334531bc3de8",
+																							"unit": "unit_acfc002005af",
+																							"pipeNo": 0,
+																							"pipeType": "pipeType_dab042a4cda0"
+																					}
+																			]
+																	}
+															]
+													}
+											]
+									}
+							]
+					},
+					{
+							"uniqueId": "group-cloud-bridge",
+							"label": "桥节点",
+							"viewType": "group-cloud-bridge",
+							"children": [
+									{
+											"uniqueId": "cloud-bridge1",
+											"redundantGroupId": "",
+											"label": "桥节点1",
+											"viewType": "cloud-bridge",
+											"networkProperties": [
+													{
+															"propertyNo": 0,
+															"propertyName": "propertyName_ac248124231f",
+															"physicalMeaning": "physicalMeaning_7a5a11142018",
+															"remark": "remark_24b75ed4435b",
+															"dataType": "dataType_73f748821326",
+															"textValue": "textValue_10b1a1417b66"
+													}
+											],
+											"children": [
+													{
+															"uniqueId": "cloud-bridge-f1",
+															"label": "F1-xxxx",
+															"viewType": "cloud-bridge-f",
+															"specialProperties": [
+																	{
+																			"propertyNo": 0,
+																			"propertyName": "propertyName_b7a250f8fdac",
+																			"physicalMeaning": "physicalMeaning_10decf7cfa84",
+																			"remark": "remark_558505cbb753",
+																			"dataType": "dataType_1260605f96c4",
+																			"textValue": "textValue_2d26d6c03ae7"
+																	}
+															],
+															"protocolProperties": [
+																	{
+																			"blockNo": "blockNo_ee5eac8cf3c6",
+																			"functionId": "functionId_4652f8cefa7c",
+																			"functionNo": "functionNo_6e304b829286",
+																			"dataType": "dataType_03659b245aaf",
+																			"functionDescription": "functionDescription_346446d6d661",
+																			"unit": "unit_0d52ee5cf3be",
+																			"functionStatus": "functionStatus_32cc1f369694",
+																			"registerAddress": "registerAddress_e409165f3dce",
+																			"registerDataType": "registerDataType_ea44fd883320",
+																			"registerNum": 0,
+																			"functionCode": "functionCode_39341fc1d2b6",
+																			"gain": 0,
+																			"offset": 0,
+																			"byteOrder": "byteOrder_08982640a1a1",
+																			"offsetBit": 0,
+																			"significanceBit": 0
+																	}
+															],
+															"children": [
+																	{
+																			"uniqueId": "group-cloud-bridge-s5",
+																			"label": "S端点",
+																			"viewType": "group-cloud-bridge-s",
+																			"children": [
+																					{
+																							"uniqueId": "s1xxxx",
+																							"label": "S1-xxxxxx",
+																							"viewType": "cloud-bridge-s",
+																							"pointNo": 0,
+																							"pointName": "pointName_b4912351d725",
+																							"physicalMeaning": "physicalMeaning_ba82074e038c",
+																							"remark": "remark_39325aafef9e",
+																							"dataType": "dataType_0e8724cf212e",
+																							"unit": "unit_932644f12db0",
+																							"pipeNo": 0,
+																							"pipeType": "pipeType_df99cc22018c"
+																					}
+																			]
+																	},
+																	{
+																			"uniqueId": "group-cloud-r5",
+																			"label": "R端点",
+																			"viewType": "group-cloud-r",
+																			"children": [
+																					{
+																							"uniqueId": "s1xxxx",
+																							"label": "R1-xxxxxx",
+																							"viewType": "cloud-bridge-r",
+																							"pointNo": 0,
+																							"pointName": "pointName_b4912351d725",
+																							"physicalMeaning": "physicalMeaning_ba82074e038c",
+																							"remark": "remark_39325aafef9e",
+																							"dataType": "dataType_0e8724cf212e",
+																							"unit": "unit_932644f12db0",
+																							"pipeNo": 0,
+																							"pipeType": "pipeType_df99cc22018c"
+																					}
+																			]
+																	}
+															]
+													}
+											]
+									}
+							]
+					},
+					{
+							"uniqueId": "group-fog",
+							"label": "雾网络",
+							"viewType": "group-fog",
+							"children": [
+									{
+											"uniqueId": "fog1",
+											"redundantGroupId": "",
+											"label": "雾网络1",
+											"viewType": "fog",
+											"fogId": "fogId_f4ff113b652f",
+											"modelCode": "modelCode_9b08f42a08ba",
+											"modelName": "name_b0d3d136d290",
+											"measurementPeriod": 0,
+											"nodeCount": "nodeCount_88b5aa68d867",
+											"networkType": "networkType_04f41bf590c2",
+											"pipeDetail": [
+													{
+															"pipeNo": "pipeNo_5c24b3a555b8",
+															"pipeType": "pipeType_bcb6e9da76ee",
+															"pipeDataType": "pipeDataType_2e1a40bde53b",
+															"pipeDescription": "pipeDescription_03e145a51d91",
+															"sourcePoint": {},
+															"receivePoints": []
+													}
+											],
+											"children": [
+													{
+															"uniqueId": "group-cloud-work2",
+															"label": "普通节点",
+															"viewType": "group-cloud-work",
+															"children": [
+																	{
+																			"uniqueId": "cloud-work11",
+																			"redundantGroupId": "",
+																			"label": "普通节点1",
+																			"viewType": "cloud-work",
+																			"nodeNo": 0,
+																			"backupNodeNo": 0,
+																			"nodeModel": "nodeModel_92c1089a1e49",
+																			"nodeName": "nodeName_90aad9a87fad",
+																			"nodeId": "nodeId_5c2adff30217",
+																			"softVersion": "softVersion_2685e2d26a7b",
+																			"nodeType": "nodeType_4b39063b5587",
+																			"syncNodeFlag": "syncNodeFlag_7cd90f32e1c9",
+																			"syncNodeNo": "syncNodeNo_66857e316cca",
+																			"networkProperties": [
+																					{
+																							"propertyNo": 0,
+																							"propertyName": "propertyName_ac248124231f",
+																							"physicalMeaning": "physicalMeaning_7a5a11142018",
+																							"remark": "remark_24b75ed4435b",
+																							"dataType": "dataType_73f748821326",
+																							"textValue": "textValue_10b1a1417b66"
+																					}
+																			],
+																			"children": [
+																					{
+																							"uniqueId": "cloud-work-f11",
+																							"label": "F1-xxxxxxxx",
+																							"viewType": "cloud-work-f",
+																							"fieldId": 0,
+																							"fieldNo": 0,
+																							"fieldName": "fieldName_3aae5fcab23e",
+																							"fieldStatus": "fieldStatus_ac0a81749842",
+																							"roleCount": 0,
+																							"specialProperties": [
+																									{
+																											"propertyNo": 0,
+																											"propertyName": "propertyName_b7a250f8fdac",
+																											"physicalMeaning": "physicalMeaning_10decf7cfa84",
+																											"remark": "remark_558505cbb753",
+																											"dataType": "dataType_1260605f96c4",
+																											"textValue": "textValue_2d26d6c03ae7"
+																									}
+																							],
+																							"protocolProperties": [
+																									{
+																											"blockNo": "blockNo_ee5eac8cf3c6",
+																											"functionId": "functionId_4652f8cefa7c",
+																											"functionNo": "functionNo_6e304b829286",
+																											"dataType": "dataType_03659b245aaf",
+																											"functionDescription": "functionDescription_346446d6d661",
+																											"unit": "unit_0d52ee5cf3be",
+																											"functionStatus": "functionStatus_32cc1f369694",
+																											"registerAddress": "registerAddress_e409165f3dce",
+																											"registerDataType": "registerDataType_ea44fd883320",
+																											"registerNum": 0,
+																											"functionCode": "functionCode_39341fc1d2b6",
+																											"gain": 0,
+																											"offset": 0,
+																											"byteOrder": "byteOrder_08982640a1a1",
+																											"offsetBit": 0,
+																											"significanceBit": 0
+																									}
+																							],
+																							"children": [
+																									{
+																											"uniqueId": "group-cloud-work-s3",
+																											"label": "S端点",
+																											"viewType": "group-cloud-work-s",
+																											"children": [
+																													{
+																															"uniqueId": "cloud-work-work-s1",
+																															"label": "S1-xxxxxx",
+																															"viewType": "cloud-work-s",
+																															"pointNo": 0,
+																															"pointName": "pointName_9b5cd84042aa",
+																															"physicalMeaning": "physicalMeaning_dce5ca0829f0",
+																															"remark": "remark_7f9f82a9ec9a",
+																															"dataType": "dataType_f3b42aad812d",
+																															"unit": "unit_83fd953a21f5",
+																															"pipeNo": 0,
+																															"pipeType": "pipeType_ef53758905f9"
+																													}
+																											]
+																									},
+																									{
+																											"uniqueId": "group-cloud-work-r3",
+																											"label": "R端点",
+																											"viewType": "group-cloud-work-r",
+																											"children": [
+																													{
+																															"uniqueId": "cloud-work-r1",
+																															"label": "R1-xxxxxx",
+																															"viewType": "cloud-work-r",
+																															"pointNo": 0,
+																															"pointName": "pointName_22537a878d8d",
+																															"physicalMeaning": "physicalMeaning_51c0612bae9a",
+																															"remark": "remark_b04f058faa89",
+																															"dataType": "dataType_9062690024c9",
+																															"unit": "unit_8ed68f834098",
+																															"pipeNo": 0,
+																															"pipeType": "pipeType_fd7f05b291d5"
+																													}
+																											]
+																									}
+																							]
+																					}
+																			]
+																	},
+																	{
+																			"uniqueId": "cloud-backup1",
+																			"redundantGroupId": "",
+																			"label": "备份节点1",
+																			"viewType": "cloud-backup",
+																			"nodeNo": 0,
+																			"backupNodeNo": 0,
+																			"nodeModel": "nodeModel_2d035bd2f6c9",
+																			"nodeName": "nodeName_e18206b664d8",
+																			"nodeId": "nodeId_f3820d1954de",
+																			"softVersion": "softVersion_27bf74eb41e1",
+																			"nodeType": "nodeType_6e48b5e11031",
+																			"syncNodeFlag": "syncNodeFlag_595f22130d8b",
+																			"syncNodeNo": "syncNodeNo_f1f75f762f14",
+																			"networkProperties": [
+																					{
+																							"propertyNo": 0,
+																							"propertyName": "propertyName_ac248124231f",
+																							"physicalMeaning": "physicalMeaning_7a5a11142018",
+																							"remark": "remark_24b75ed4435b",
+																							"dataType": "dataType_73f748821326",
+																							"textValue": "textValue_10b1a1417b66"
+																					}
+																			],
+																			"children": [
+																					{
+																							"uniqueId": "cloud-backup-f1",
+																							"label": "F1-xxxxx",
+																							"viewType": "cloud-backup-f",
+																							"fieldId": 0,
+																							"fieldNo": 0,
+																							"fieldName": "fieldName_22f31a9961b9",
+																							"fieldStatus": "fieldStatus_0e2f3fb5c13c",
+																							"roleCount": 0,
+																							"specialProperties": [
+																									{
+																											"propertyNo": 0,
+																											"propertyName": "propertyName_b7a250f8fdac",
+																											"physicalMeaning": "physicalMeaning_10decf7cfa84",
+																											"remark": "remark_558505cbb753",
+																											"dataType": "dataType_1260605f96c4",
+																											"textValue": "textValue_2d26d6c03ae7"
+																									}
+																							],
+																							"protocolProperties": [
+																									{
+																											"blockNo": "blockNo_ee5eac8cf3c6",
+																											"functionId": "functionId_4652f8cefa7c",
+																											"functionNo": "functionNo_6e304b829286",
+																											"dataType": "dataType_03659b245aaf",
+																											"functionDescription": "functionDescription_346446d6d661",
+																											"unit": "unit_0d52ee5cf3be",
+																											"functionStatus": "functionStatus_32cc1f369694",
+																											"registerAddress": "registerAddress_e409165f3dce",
+																											"registerDataType": "registerDataType_ea44fd883320",
+																											"registerNum": 0,
+																											"functionCode": "functionCode_39341fc1d2b6",
+																											"gain": 0,
+																											"offset": 0,
+																											"byteOrder": "byteOrder_08982640a1a1",
+																											"offsetBit": 0,
+																											"significanceBit": 0
+																									}
+																							],
+																							"children": [
+																									{
+																											"uniqueId": "group-cloud-backup-s4",
+																											"label": "S端点",
+																											"viewType": "group-cloud-backup-s",
+																											"children": [
+																													{
+																															"uniqueId": "cloud-backup-s1",
+																															"label": "s1-xxxxxxx",
+																															"viewType": "cloud-backup-s",
+																															"pointNo": 0,
+																															"pointName": "pointName_1a2fd9086a99",
+																															"physicalMeaning": "physicalMeaning_9f36ed47c16c",
+																															"remark": "remark_869266b1db91",
+																															"dataType": "dataType_334531bc3de8",
+																															"unit": "unit_acfc002005af",
+																															"pipeNo": 0,
+																															"pipeType": "pipeType_dab042a4cda0"
+																													}
+																											]
+																									},
+																									{
+																											"uniqueId": "group-cloud-backup-r4",
+																											"label": "R端点",
+																											"viewType": "group-cloud-backup-r",
+																											"children": [
+																													{
+																															"uniqueId": "cloud-backup-r1",
+																															"label": "s1-xxxxxxx",
+																															"viewType": "cloud-backup-r",
+																															"pointNo": 0,
+																															"pointName": "pointName_1a2fd9086a99",
+																															"physicalMeaning": "physicalMeaning_9f36ed47c16c",
+																															"remark": "remark_869266b1db91",
+																															"dataType": "dataType_334531bc3de8",
+																															"unit": "unit_acfc002005af",
+																															"pipeNo": 0,
+																															"pipeType": "pipeType_dab042a4cda0"
+																													}
+																											]
+																									}
+																							]
+																					}
+																			]
+																	}
+															]
+													},
+													{
+															"uniqueId": "fog-bridge1",
+															"label": "桥节点",
+															"viewType": "fog-bridge",
+															"nodeNo": 0,
+															"backupNodeNo": 0,
+															"nodeModel": "nodeModel_6d99badedde7",
+															"nodeName": "nodeName_c8c1dbdba331",
+															"nodeId": "nodeId_e6280d41049c",
+															"softVersion": "softVersion_ee95b221b2b3",
+															"nodeType": "nodeType_4aa046f7a88c",
+															"syncNodeFlag": "syncNodeFlag_b71514fa7538",
+															"syncNodeNo": "syncNodeNo_d5275b656864",
+															"networkProperties": [],
+															"children": [
+																	{
+																			"uniqueId": "fog-bridge-f1",
+																			"label": "F1-xxxxx",
+																			"viewType": "fog-bridge-f",
+																			"fieldId": 0,
+																			"fieldNo": 0,
+																			"fieldName": "fieldName_903673a1c2db",
+																			"fieldStatus": "fieldStatus_efa24722b585",
+																			"roleCount": 0,
+																			"specialProperties": [
+																					{
+																							"propertyNo": 0,
+																							"propertyName": "propertyName_b7a250f8fdac",
+																							"physicalMeaning": "physicalMeaning_10decf7cfa84",
+																							"remark": "remark_558505cbb753",
+																							"dataType": "dataType_1260605f96c4",
+																							"textValue": "textValue_2d26d6c03ae7"
+																					}
+																			],
+																			"protocolProperties": [
+																					{
+																							"blockNo": "blockNo_ee5eac8cf3c6",
+																							"functionId": "functionId_4652f8cefa7c",
+																							"functionNo": "functionNo_6e304b829286",
+																							"dataType": "dataType_03659b245aaf",
+																							"functionDescription": "functionDescription_346446d6d661",
+																							"unit": "unit_0d52ee5cf3be",
+																							"functionStatus": "functionStatus_32cc1f369694",
+																							"registerAddress": "registerAddress_e409165f3dce",
+																							"registerDataType": "registerDataType_ea44fd883320",
+																							"registerNum": 0,
+																							"functionCode": "functionCode_39341fc1d2b6",
+																							"gain": 0,
+																							"offset": 0,
+																							"byteOrder": "byteOrder_08982640a1a1",
+																							"offsetBit": 0,
+																							"significanceBit": 0
+																					}
+																			],
+																			"children": [
+																					{
+																							"uniqueId": "group-fog-bridge-s",
+																							"label": "S端点",
+																							"viewType": "s",
+																							"children": [
+																									{
+																											"uniqueId": "fog-bridge-s1",
+																											"label": "s1-xxxxxxx",
+																											"viewType": "fog-bridge-s",
+																											"pointNo": 0,
+																											"pointName": "pointName_7c5fec41c9ac",
+																											"physicalMeaning": "physicalMeaning_4c101d298d1c",
+																											"remark": "remark_d112a869dc9f",
+																											"dataType": "dataType_10efad6ba76b",
+																											"unit": "unit_ba0cdd58bd64",
+																											"pipeNo": 0,
+																											"pipeType": "pipeType_5c854a414bc3"
+																									}
+																							]
+																					},
+																					{
+																							"uniqueId": "group-fog-bridge-r",
+																							"label": "R端点",
+																							"viewType": "r",
+																							"children": [
+																									{
+																											"uniqueId": "fog-bridge-r1",
+																											"label": "s1-xxxxxxx",
+																											"viewType": "fog-bridge-r",
+																											"pointNo": 0,
+																											"pointName": "pointName_7c5fec41c9ac",
+																											"physicalMeaning": "physicalMeaning_4c101d298d1c",
+																											"remark": "remark_d112a869dc9f",
+																											"dataType": "dataType_10efad6ba76b",
+																											"unit": "unit_ba0cdd58bd64",
+																											"pipeNo": 0,
+																											"pipeType": "pipeType_5c854a414bc3"
+																									}
+																							]
+																					},
+																					{
+																							"uniqueId": "group-fog-bridge-s2",
+																							"label": "S端点",
+																							"viewType": "fog-s",
+																							"children": [
+																									{
+																											"uniqueId": "fog-bridge-s1",
+																											"redundantGroupId": "",
+																											"label": "s1-xxxxxxx",
+																											"viewType": "fog-bridge-s",
+																											"pointNo": 0,
+																											"pointName": "pointName_7c5fec41c9ac",
+																											"physicalMeaning": "physicalMeaning_4c101d298d1c",
+																											"remark": "remark_d112a869dc9f",
+																											"dataType": "dataType_10efad6ba76b",
+																											"unit": "unit_ba0cdd58bd64",
+																											"pipeNo": 0,
+																											"pipeType": "pipeType_5c854a414bc3"
+																									}
+																							]
+																					},
+																					{
+																							"uniqueId": "group-fog-bridge-r2",
+																							"label": "R端点",
+																							"viewType": "fog-r",
+																							"children": [
+																									{
+																											"uniqueId": "fog-bridge-r1",
+																											"redundantGroupId": "",
+																											"label": "s1-xxxxxxx",
+																											"viewType": "fog-bridge-r",
+																											"pointNo": 0,
+																											"pointName": "pointName_7c5fec41c9ac",
+																											"physicalMeaning": "physicalMeaning_4c101d298d1c",
+																											"remark": "remark_d112a869dc9f",
+																											"dataType": "dataType_10efad6ba76b",
+																											"unit": "unit_ba0cdd58bd64",
+																											"pipeNo": 0,
+																											"pipeType": "pipeType_5c854a414bc3"
+																									}
+																							]
+																					}
+																			]
+																	}
+															]
+													}
+											]
+									}
+							]
+					}
+			]
+	}
+]

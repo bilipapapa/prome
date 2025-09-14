@@ -1,29 +1,30 @@
-import { resolve } from 'path';
-import { defineConfig, loadEnv, ConfigEnv } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueSetupExtend from 'vite-plugin-vue-setup-extend';
-import viteCompression from 'vite-plugin-compression';
-import topLevelAwait from 'vite-plugin-top-level-await';
-import { createStyleImportPlugin, VxeTableResolve } from 'vite-plugin-style-import';
-import Icons from 'unplugin-icons/vite';
-import IconsResolver from 'unplugin-icons/resolver';
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-import Inspect from 'vite-plugin-inspect';
+import { resolve } from 'path'
+import { defineConfig, loadEnv, ConfigEnv } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+import viteCompression from 'vite-plugin-compression'
+import topLevelAwait from 'vite-plugin-top-level-await'
+import { createStyleImportPlugin, VxeTableResolve } from 'vite-plugin-style-import'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Inspect from 'vite-plugin-inspect'
+import { Buffer } from 'buffer'
 
 const pathResolve = (dir: string) => {
-	return resolve(__dirname, '.', dir);
-};
+	return resolve(__dirname, '.', dir)
+}
 
 const alias: Record<string, string> = {
 	'@': pathResolve('./src/'),
 	'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
-};
+}
 
 // https://vitejs.dev/config/
 const viteConfig = defineConfig((ConfigEnv: ConfigEnv): any => {
-	const env = loadEnv(ConfigEnv.mode, process.cwd());
+	const env = loadEnv(ConfigEnv.mode, process.cwd())
 	// console.log('configEnv', configEnv)
 	// console.log('env', env)
 	return {
@@ -75,11 +76,17 @@ const viteConfig = defineConfig((ConfigEnv: ConfigEnv): any => {
 				// filter: /\.(js|css|json|txt|ico|svg)(\?.*)?$/i, // 匹配需要压缩的文件
 			}),
 		],
+		worker: {
+			format: 'es', // 确保 Worker 使用 ES 模块
+		},
 		root: process.cwd(), // 项目根目录
-		resolve: { alias }, // 路径别名配置
+		resolve: {
+			alias,
+			buffer: 'buffer', // 确保 buffer 模块解析
+		}, // 路径别名配置
 		base: ConfigEnv.command === 'serve' ? './' : env.VITE_PUBLIC_PATH,
 		optimizeDeps: {
-			include: ['element-plus/es/locale/lang/zh-cn', 'element-plus/es/locale/lang/en'],
+			include: ['element-plus/es/locale/lang/zh-cn', 'element-plus/es/locale/lang/en', 'buffer'],
 		},
 		server: {
 			/** 是否开启 HTTPS */
@@ -104,8 +111,11 @@ const viteConfig = defineConfig((ConfigEnv: ConfigEnv): any => {
 					rewrite: (path: string) => path.replace(/^\/api/, ''),
 				},
 			},
+			// 调整最大内存限制（例如 4GB）
+			maxRequestSize: 8 * 1024 * 1024 * 1024 // 4GB
 		},
 		build: {
+			target: 'esnext',
 			outDir: 'dist', // 打包输出目录
 			chunkSizeWarningLimit: 1500, // 代码分包阈值
 			rollupOptions: {
@@ -137,7 +147,8 @@ const viteConfig = defineConfig((ConfigEnv: ConfigEnv): any => {
 			__INTLIFY_PROD_DEVTOOLS__: JSON.stringify(false),
 			__VERSION__: JSON.stringify(process.env.npm_package_version),
 			__PROJECT_NAME__: JSON.stringify(process.env.npm_package_name),
+			'globalThis.Buffer': JSON.stringify(Buffer),
 		},
-	};
-});
-export default viteConfig;
+	}
+})
+export default viteConfig
